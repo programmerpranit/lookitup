@@ -7,6 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import com.psp.lookitup.R
 
-class RequestDetailsFragment : Fragment() {
+class RequestDetailsFragment : Fragment(R.layout.fragment_request_details) {
 
 }

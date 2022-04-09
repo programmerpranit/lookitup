@@ -9,55 +9,45 @@
 
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tilPhoneNo"
-        android:layout_width="302dp"
-        android:layout_height="64dp"
-        android:hint="Enter Mobile Number"
-        app:boxBackgroundColor="#FFFFFF"
-        app:boxBackgroundMode="outline"
-        app:boxCornerRadiusBottomEnd="5dp"
-        app:boxCornerRadiusBottomStart="5dp"
-        app:boxCornerRadiusTopEnd="5dp"
-        app:boxCornerRadiusTopStart="5dp"
-        app:boxStrokeColor="#D500F9"
-        app:errorIconDrawable="@android:drawable/ic_menu_close_clear_cancel"
+        android:id="@+id/phone"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Phone Number"
+
+        app:layout_constraintVertical_bias=".4"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.422">
+        android:layout_margin="20dp">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etPhoneNo"
+            android:id="@+id/etPhoneNumber"
+            android:inputType="numberDecimal"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="8dp" />
+            android:layout_height="wrap_content" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
+
+<!--    <EditText-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:inputType="date"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintBottom_toTopOf="@id/phone"/>-->
+
     <Button
         android:id="@+id/btnGetOtp"
-        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Get OTP"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/tilPhoneNo"
-        app:layout_constraintStart_toStartOf="@+id/tilPhoneNo"
-        app:layout_constraintTop_toBottomOf="@+id/tilPhoneNo"
-        app:layout_constraintVertical_bias="0.228" />
+        app:layout_constraintEnd_toEndOf="@id/phone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/phone" />
 
-    <Button
-        android:id="@+id/btnToMain"
-        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TO MAIN"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/tilPhoneNo"
-        app:layout_constraintStart_toStartOf="@+id/tilPhoneNo"
-        app:layout_constraintTop_toBottomOf="@+id/tilPhoneNo"
-        app:layout_constraintVertical_bias="0.474" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

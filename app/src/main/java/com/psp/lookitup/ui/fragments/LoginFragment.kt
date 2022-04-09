@@ -53,9 +53,9 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         val Login = binding.btnGetOtp
 
 
-        binding.btnToMain.setOnClickListener{
-            view.findNavController().navigate(R.id.action_loginFragment_to_mainFragment)
-        }
+//        binding.btnToMain.setOnClickListener{
+//            view.findNavController().navigate(R.id.action_loginFragment_to_mainFragment)
+//        }
 
 
         val currentUser = auth.currentUser
@@ -94,7 +94,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
     }
 
     private fun login() {
-        val mobileNumber = binding.etPhoneNo
+        val mobileNumber = binding.etPhoneNumber
         var number = mobileNumber.text.toString().trim()
 
         if (!number.isEmpty()) {
