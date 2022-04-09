@@ -37,6 +37,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
+        android:id="@+id/btnGetOtp"
         style="@style/Widget.MaterialComponents.Button.OutlinedButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -46,5 +47,17 @@
         app:layout_constraintStart_toStartOf="@+id/tilPhoneNo"
         app:layout_constraintTop_toBottomOf="@+id/tilPhoneNo"
         app:layout_constraintVertical_bias="0.228" />
+
+    <Button
+        android:id="@+id/btnToMain"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TO MAIN"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/tilPhoneNo"
+        app:layout_constraintStart_toStartOf="@+id/tilPhoneNo"
+        app:layout_constraintTop_toBottomOf="@+id/tilPhoneNo"
+        app:layout_constraintVertical_bias="0.474" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
