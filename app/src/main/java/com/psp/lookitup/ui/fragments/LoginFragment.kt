@@ -52,12 +52,6 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 //        Reference
         val Login = binding.btnGetOtp
 
-
-//        binding.btnToMain.setOnClickListener{
-//            view.findNavController().navigate(R.id.action_loginFragment_to_mainFragment)
-//        }
-
-
         val currentUser = auth.currentUser
         if (currentUser != null) {
             view.findNavController().navigate(R.id.action_login)
@@ -88,8 +82,6 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                 viewmodel.verificationId = verificationId
             }
         }
-
-
 
     }
 
