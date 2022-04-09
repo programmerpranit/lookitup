@@ -5,6 +5,7 @@
       <map>
         <entry key="..\:/Users/PRANIT/AndroidStudioProjects/LookitUp/app/src/main/res/layout/activity_main.xml" value="0.2526041666666667" />
         <entry key="app/src/main/res/drawable/gradient_background.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_add.xml" value="0.23" />
         <entry key="app/src/main/res/drawable/ic_baseline_message_24.xml" value="0.173" />
         <entry key="app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_login.xml" value="0.144" />
@@ -12,7 +13,7 @@
         <entry key="app/src/main/res/drawable/login.xml" value="0.144" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.19610507246376813" />
         <entry key="app/src/main/res/layout/fragment_add_request.xml" value="0.19429347826086957" />
-        <entry key="app/src/main/res/layout/fragment_details.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_details.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_full_request.xml" value="0.29810549970986183" />
         <entry key="app/src/main/res/layout/fragment_login.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_main.xml" value="0.19610507246376813" />
