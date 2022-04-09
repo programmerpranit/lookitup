@@ -55,7 +55,6 @@ class DetailsFragment : Fragment() {
             "occupation" to "student",
             "location" to "Ambernath"
         )
-// Add a new document with a generated ID
         dbref.collection("User")
             .add(user)
             .addOnSuccessListener { documentReference ->

@@ -31,34 +31,45 @@ class MainViewmodel @Inject constructor() : ViewModel() {
     private var _requestDetails = MutableLiveData<Request>()
     val requestDetails: LiveData<Request> = _requestDetails
 
+
+    private var _userDetails = MutableLiveData<User>()
+    val userDetails :LiveData<User> = _userDetails
+
+
     private var _requests = MutableLiveData<List<Request>>()
     val requests: LiveData<List<Request>> = _requests
 
 
     fun getUsers() {
-        val requestUser: MutableList<User> = mutableListOf()
-        val dbref = db.collection("users")
-        dbref.get().addOnSuccessListener { users ->
-            for (user in users.documents) {
-                val req = Request()
-            }
+        val docref = db.collection("users").document("User")
+        docref.get().addOnSuccessListener { documentSnapshot ->
+            val user = documentSnapshot.toObject(User::class.java)
         }
     }
 
-    fun getRequests() {
+    fun getRequests(search: String?) {
+
+        Log.d(TAG, search?: "Search is Empty")
+
+        val docref = if (search.isNullOrBlank() || search.isNullOrEmpty()){
+            db.collection("requests")
+        } else {
+            Log.d(TAG, "In Else")
+            db.collection("requests").orderBy("roomLocation") .startAt(search).endAt(search+"\uf8ff")
+        }
 
         val requestList: MutableList<Request> = mutableListOf()
-        val docref = db.collection("requests")
+
         docref.get().addOnSuccessListener { requests ->
 
             for (request in requests.documents) {
                 val req = Request()
-                Log.d(TAG, request.id)
                 req.id = request.id
                 req.Description = (request.data!!["Description"] as String?).toString()
                 req.requestTitle = (request.data!!["requestTitle"] as String?).toString()
                 req.roomLocation = (request.data!!["roomLocation"] as String?).toString()
 
+                Log.d(TAG, req.roomLocation)
                 requestList.add(req)
             }
             _requests.value = requestList
@@ -66,7 +77,7 @@ class MainViewmodel @Inject constructor() : ViewModel() {
     }
 
     fun getFullRequest(id: String) {
-        val document =  db.collection("requests").document(id)
+        val document = db.collection("requests").document(id)
         document.get()
             .addOnSuccessListener { request ->
                 val req = Request()
@@ -74,7 +85,7 @@ class MainViewmodel @Inject constructor() : ViewModel() {
                 req.Description = (request.data!!["Description"] as String?).toString()
                 req.requestTitle = (request.data!!["requestTitle"] as String?).toString()
                 req.roomLocation = (request.data!!["roomLocation"] as String?).toString()
-               _requestDetails.value = req
+                _requestDetails.value = req
             }
             .addOnFailureListener {
                 Log.d(TAG, "data fetch failed")
@@ -90,8 +101,17 @@ class MainViewmodel @Inject constructor() : ViewModel() {
         }
     }
 
-    fun getUserById(id: String): Task<DocumentSnapshot> {
-        return userCollection.document(id).get()
+//    fun getUserEmail(id: String):String {
+//         userCollection.document(id).get().addOnSuccessListener {
+//            return@addOnSuccessListener it.data?.get("emailId")
+//
+//         }
+//    }
+
+
+
+    fun searchRequests(search: String){
+
     }
 
 
