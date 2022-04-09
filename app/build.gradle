@@ -4,6 +4,7 @@ plugins {
     id 'kotlin-kapt'
     id 'org.jetbrains.kotlin.android.extensions'
     id 'dagger.hilt.android.plugin'
+    id 'com.google.gms.google-services'
 //    id 'com.google.gms.google-services'
 
 }
