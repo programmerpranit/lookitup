@@ -33,6 +33,9 @@ class RequestAdapter(private val listner:IRequestClicked) : ListAdapter<Request,
     override fun onBindViewHolder(holder: RequestViewHolder, position: Int) {
         val currentItem = getItem(position)
         holder.title.text = currentItem.requestTitle
+        holder.location.text = currentItem.roomLocation
+        holder.name.text = currentItem.name
+        holder.occupation.text = currentItem.occupation
     }
     class DataComparator : DiffUtil.ItemCallback<Request>() {
         override fun areItemsTheSame(oldItem: Request, newItem: Request): Boolean {

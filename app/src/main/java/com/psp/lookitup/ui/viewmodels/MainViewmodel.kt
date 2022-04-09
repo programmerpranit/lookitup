@@ -38,15 +38,6 @@ class MainViewmodel @Inject constructor() : ViewModel() {
     val requests: LiveData<List<Request>> = _requests
 
 
-    fun getUsers() {
-        val requestUser: MutableList<User> = mutableListOf()
-        val dbref = db.collection("users")
-        dbref.get().addOnSuccessListener { users ->
-
-
-        }
-    }
-
     fun getRequests(search: String?) {
 
         Log.d(TAG, search?: "Search is Empty")
@@ -103,15 +94,17 @@ class MainViewmodel @Inject constructor() : ViewModel() {
 
     fun getUserById(id: String) {
         userCollection.document(id).get().addOnSuccessListener {
-            val user = User(id = it.data?.get("id").toString().toInt())
+            val user = User()
+            user.name =  it.data?.get("name").toString()
             user.emailId =  it.data?.get("emailId").toString()
+            user.DOB = it.data?.get("DOB").toString()
+            user.gender = it.data?.get("gender").toString()
+            user.occupation = it.data?.get("occupation").toString()
+
+            _fullUser.value = user
         }
-    }
-
-    fun searchRequests(search: String){
 
     }
-
 
     fun addRequest(request: Request) {
         db.collection("requests")

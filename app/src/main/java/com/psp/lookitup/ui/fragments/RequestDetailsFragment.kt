@@ -43,9 +43,7 @@ class RequestDetailsFragment : Fragment(R.layout.fragment_request_details) {
         }
         viewmodel.requestDetails.observe(viewLifecycleOwner) { req ->
             binding.tvNameFullRequest.text = req.requestTitle
-            binding.tvLocationFullRequest.text = req.roomLocation
-        }
-        btnSendEmail.setOnClickListener {
+//            binding.tvLocationFullRequest.text = req.roomLocation
         }
 
         fun sendEmail(recipient: String) {
