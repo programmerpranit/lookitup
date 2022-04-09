@@ -52,6 +52,8 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 //        Reference
         val Login = binding.btnGetOtp
 
+        viewmodel.getQuestions()
+
 
         var currentUser = auth.currentUser
         if (currentUser != null) {
