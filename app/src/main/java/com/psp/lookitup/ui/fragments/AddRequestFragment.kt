@@ -32,8 +32,6 @@ class AddRequestFragment : Fragment() {
         return binding.root
     }
 
-
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -48,10 +46,6 @@ class AddRequestFragment : Fragment() {
 
             view.findNavController().navigate(R.id.action_addRequestFragment_to_mainFragment)
         }
-
-
-
-
 
     }
 
