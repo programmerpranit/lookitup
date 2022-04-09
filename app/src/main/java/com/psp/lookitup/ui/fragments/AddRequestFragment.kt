@@ -39,7 +39,7 @@ class AddRequestFragment : Fragment() {
             val request = Request()
             request.requestTitle = binding.etRequestTitle.text.toString()
             request.Description = binding.etDesc.text.toString()
-            request.roomLocation = binding.etLocation.text.toString()
+            request.roomLocation = binding.etLocation.text.toString().lowercase()
 
             viewmodel.addRequest(request)
             Toast.makeText(requireContext(), "Your Request Added Successfully", Toast.LENGTH_SHORT).show()
