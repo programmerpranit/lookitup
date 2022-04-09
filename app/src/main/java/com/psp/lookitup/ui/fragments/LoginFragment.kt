@@ -54,7 +54,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
         val currentUser = auth.currentUser
         if (currentUser != null) {
-            view.findNavController().navigate(R.id.action_login)
+            view.findNavController().navigate(R.id.action_loginFragment_to_verifyFragment)
         }
 
         Login.setOnClickListener {
