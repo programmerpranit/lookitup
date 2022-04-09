@@ -8,7 +8,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         >
 
         <com.google.android.material.textfield.TextInputLayout
@@ -17,6 +17,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:hint="Enter Name"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             app:errorIconDrawable="@android:drawable/ic_menu_close_clear_cancel"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -25,9 +26,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etName"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:padding="8dp"
-                android:textSize="20sp" />
+                android:layout_height="match_parent" />
 
         </com.google.android.material.textfield.TextInputLayout>
 

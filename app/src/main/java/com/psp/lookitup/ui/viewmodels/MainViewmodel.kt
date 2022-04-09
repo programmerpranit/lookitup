@@ -1,11 +1,13 @@
 package com.psp.lookitup.ui.viewmodels
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
 import com.psp.lookitup.data.Request
@@ -24,6 +26,10 @@ class MainViewmodel @Inject constructor() : ViewModel() {
     val userCollection = db.collection("users")
     var verificationId = ""
 
+    val TAG = "MainVM"
+
+    private var _requestDetails = MutableLiveData<Request>()
+    val requestDetails: LiveData<Request> = _requestDetails
 
     private var _requests = MutableLiveData<List<Request>>()
     val requests: LiveData<List<Request>> = _requests
@@ -33,16 +39,11 @@ class MainViewmodel @Inject constructor() : ViewModel() {
         val requestUser: MutableList<User> = mutableListOf()
         val dbref = db.collection("users")
         dbref.get().addOnSuccessListener { users ->
-
             for (user in users.documents) {
                 val req = Request()
-
             }
-
         }
-
     }
-
 
     fun getRequests() {
 
@@ -52,6 +53,7 @@ class MainViewmodel @Inject constructor() : ViewModel() {
 
             for (request in requests.documents) {
                 val req = Request()
+                Log.d(TAG, request.id)
                 req.id = request.id
                 req.Description = (request.data!!["Description"] as String?).toString()
                 req.requestTitle = (request.data!!["requestTitle"] as String?).toString()
@@ -64,7 +66,19 @@ class MainViewmodel @Inject constructor() : ViewModel() {
     }
 
     fun getFullRequest(id: String) {
-
+        val document =  db.collection("requests").document(id)
+        document.get()
+            .addOnSuccessListener { request ->
+                val req = Request()
+                req.id = request.id
+                req.Description = (request.data!!["Description"] as String?).toString()
+                req.requestTitle = (request.data!!["requestTitle"] as String?).toString()
+                req.roomLocation = (request.data!!["roomLocation"] as String?).toString()
+               _requestDetails.value = req
+            }
+            .addOnFailureListener {
+                Log.d(TAG, "data fetch failed")
+            }
     }
 
 
