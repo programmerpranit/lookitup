@@ -5,14 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/tvborder"
-    tools:context=".ui.fragments.RequestDetailsFragment">
+    tools:context=".ui.fragments.fullRequest">
 
     <TextView
         android:id="@+id/tvNameFullRequest"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+
+        android:layout_marginStart="32dp"
         android:hint="Prathamesh Karambelkar"
+
         android:textAlignment="center"
         android:textColor="@color/black"
 
@@ -22,7 +24,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.298" />
+        app:layout_constraintVertical_bias="0.367" />
 
     <TextView
         android:id="@+id/tvEmailIdFullRequest"
@@ -35,7 +37,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
 
 
-        app:layout_constraintTop_toBottomOf="@+id/cardView" />
+        tools:layout_editor_absoluteY="311dp" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
@@ -59,26 +61,27 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_end="871dp" />
+        app:layout_constraintGuide_begin="20dp" />
 
     <TextView
         android:id="@+id/tvdescriptionfullrequest"
         android:layout_width="403dp"
         android:layout_height="95dp"
-        android:layout_margin="10dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
         android:ellipsize="end"
         android:hint="Description"
         android:text="Description"
         android:textSize="25sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvNameFullRequest" />
+        app:layout_constraintTop_toBottomOf="@+id/tvEmailIdFullRequest" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="110dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-
+        android:layout_height="46dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="8dp"
         android:text="AGE"
         android:textSize="25sp"
         app:layout_constraintStart_toStartOf="parent"

@@ -9,6 +9,6 @@ data class User(
     val DOB: String = "",
     val gender: String= "",
     val Status: String = "",
-    val occupation: String = ""
+    val occupation: String = "",
 )
 

@@ -18,7 +18,7 @@ class RequestAdapter(private val listner:IRequestClicked) : ListAdapter<Request,
 //        ) : RecyclerView.ViewHolder(binding.root)
 
     inner class RequestViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-
+        val title: TextView = itemView.findViewById(R.id.name)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RequestViewHolder {
@@ -32,7 +32,7 @@ class RequestAdapter(private val listner:IRequestClicked) : ListAdapter<Request,
 
     override fun onBindViewHolder(holder: RequestViewHolder, position: Int) {
         val currentItem = getItem(position)
-
+        holder.title.text = currentItem.requestTitle
     }
     class DataComparator : DiffUtil.ItemCallback<Request>() {
         override fun areItemsTheSame(oldItem: Request, newItem: Request): Boolean {

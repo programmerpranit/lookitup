@@ -4,91 +4,65 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="10dp"
-    android:elevation="6dp"
-    android:padding="16dp"
-    app:cardElevation="10dp"
+    android:layout_marginHorizontal="10dp"
+    android:layout_marginVertical="5dp"
+    android:elevation="20dp"
+    app:cardCornerRadius="20dp"
     >
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-
+        android:layout_height="match_parent"
+        android:padding="20dp"
         >
 
-
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardView2"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_margin="1dp"
-            android:layout_marginLeft="10dp"
-            android:elevation="10dp"
-            android:textAlignment="viewStart"
-            app:cardCornerRadius="100dp"
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            >
+            tools:text="I am Searching for a roommate in Panvel" />
 
-
-            <ImageView
-                android:id="@+id/imageView6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:srcCompat="@tools:sample/avatars" />
-        </androidx.cardview.widget.CardView>
-
-        <TextView
-            android:id="@+id/textView2"
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvLocation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="12dp"
-            android:text="Full Name"
+            android:text="Location"
+            android:layout_marginTop="5dp"
+            android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cardView2" />
+            app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
 
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="175dp"
-            android:layout_height="36dp"
-            android:layout_marginStart="56dp"
-            android:layout_marginTop="16dp"
-            android:text="Gender"
-            android:textSize="25sp"
-            app:layout_constraintStart_toEndOf="@+id/cardView2"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/textView5"
-            android:layout_width="102dp"
-            android:layout_height="37dp"
-            android:layout_marginStart="56dp"
-            android:layout_marginTop="8dp"
-            android:text="Age"
-            android:textSize="25sp"
-            app:layout_constraintStart_toEndOf="@+id/cardView2"
-            app:layout_constraintTop_toBottomOf="@+id/textView4" />
-
-        <TextView
-            android:id="@+id/textView7"
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="56dp"
-            android:layout_marginTop="8dp"
-            android:text="Occupation"
-            android:textSize="25sp"
-            app:layout_constraintStart_toEndOf="@+id/cardView2"
-            app:layout_constraintTop_toBottomOf="@+id/textView5" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvLocation"
+            android:layout_marginTop="5dp"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:text="Pranit Patil" />
 
-        <androidx.cardview.widget.CardView
-            android:layout_width="54dp"
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvOccupation"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:layout_editor_absoluteX="102dp"
-            tools:layout_editor_absoluteY="89dp" >
+            android:textSize="18sp"
+            android:layout_marginStart="20dp"
+            app:layout_constraintStart_toEndOf="@+id/tvName"
+            app:layout_constraintTop_toTopOf="@+id/tvName"
+            tools:text="Student" />
 
-        </androidx.cardview.widget.CardView>
+
+
+
+
+
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
