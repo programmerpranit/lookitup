@@ -39,26 +39,34 @@ class MainViewmodel @Inject constructor() : ViewModel() {
         val requestUser: MutableList<User> = mutableListOf()
         val dbref = db.collection("users")
         dbref.get().addOnSuccessListener { users ->
-            for (user in users.documents) {
-                val req = Request()
-            }
+
+
         }
     }
 
-    fun getRequests() {
+    fun getRequests(search: String?) {
+
+        Log.d(TAG, search?: "Search is Empty")
+
+        val docref = if (search.isNullOrBlank() || search.isNullOrEmpty()){
+            db.collection("requests")
+        } else {
+            Log.d(TAG, "In Else")
+            db.collection("requests").orderBy("roomLocation") .startAt(search).endAt(search+"\uf8ff")
+        }
 
         val requestList: MutableList<Request> = mutableListOf()
-        val docref = db.collection("requests")
+
         docref.get().addOnSuccessListener { requests ->
 
             for (request in requests.documents) {
                 val req = Request()
-                Log.d(TAG, request.id)
                 req.id = request.id
                 req.Description = (request.data!!["Description"] as String?).toString()
                 req.requestTitle = (request.data!!["requestTitle"] as String?).toString()
                 req.roomLocation = (request.data!!["roomLocation"] as String?).toString()
 
+                Log.d(TAG, req.roomLocation)
                 requestList.add(req)
             }
             _requests.value = requestList
@@ -92,6 +100,10 @@ class MainViewmodel @Inject constructor() : ViewModel() {
 
     fun getUserById(id: String): Task<DocumentSnapshot> {
         return userCollection.document(id).get()
+    }
+
+    fun searchRequests(search: String){
+
     }
 
 
