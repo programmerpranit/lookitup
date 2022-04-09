@@ -116,7 +116,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:text="Male"
-                android:backgroundTint="@color/themeRed"
+                android:buttonTint="@color/themeRed"
                 app:layout_constraintBottom_toTopOf="@id/tvOccupation"
                 app:layout_constraintLeft_toRightOf="@id/rbMale"
                 tools:layout_editor_absoluteX="20dp" />
@@ -150,7 +150,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:text="Student"
-                android:backgroundTint="@color/themeRed"
+                android:buttonTint="@color/themeRed"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvOccupation" />
 
@@ -160,7 +160,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:text="Working Profestion"
-                android:backgroundTint="@color/themeRed"
+                android:buttonTint="@color/themeRed"
                 app:layout_constraintLeft_toRightOf="@id/rbStudent"
                 app:layout_constraintTop_toBottomOf="@id/tvOccupation"
                 tools:layout_editor_absoluteX="20dp" />
@@ -185,7 +185,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="44dp"
             android:orientation="horizontal"
-            android:buttonTint="@color/themeRed"
+
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/rg2">
@@ -196,7 +196,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:text="Looking for Room"
-                android:backgroundTint="@color/themeRed"
+                android:buttonTint="@color/themeRed"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvRequest" />
 
@@ -206,7 +206,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:text="Looking for Room-Mates"
-                android:backgroundTint="@color/themeRed"
+                android:buttonTint="@color/themeRed"
                 app:layout_constraintLeft_toRightOf="@id/rbLookingForRoom"
                 app:layout_constraintTop_toBottomOf="@id/tvRequest" />
         </RadioGroup>
