@@ -42,7 +42,7 @@ class DetailsFragment : Fragment() {
 
         //Spinner 1 logic
         spinner1 = binding.root.findViewById(R.id.spinner1)
-        sp1t = binding.root.findViewById(R.id.dst1)
+        sp1t = binding.root.findViewById(R.id.tvDst1)
         val options1= arrayOf("Male","Female")
         spinner1.adapter= ArrayAdapter<String>(requireContext(),android.R.layout.simple_list_item_1,options1)
         spinner1.onItemSelectedListener=object: AdapterView.OnItemSelectedListener {
