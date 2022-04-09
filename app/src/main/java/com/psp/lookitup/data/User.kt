@@ -3,6 +3,7 @@ package com.psp.lookitup.data
 import java.text.DateFormat
 
 data class User(
+
     val id: Int,
     val name: String? = null,
     val emailId: String? = null,
