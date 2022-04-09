@@ -5,13 +5,13 @@ import java.text.DateFormat
 data class User(
 
     val id: Int,
-    val name: String? = null,
-    val emailId: String? = null,
+    val name: String? = "",
+    val emailId: String? = "",
     val DOB: DateFormat? = null,
-    val gender: String?= null,
-    val Status: String? = null,
-    val occupation: String? = null,
-    val location: String? = null
+    val gender: String?= "",
+    val Status: String? = "",
+    val occupation: String? = "",
+    val location: String? = "",
 
 )
 
