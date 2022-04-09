@@ -1,6 +1,7 @@
 package com.psp.lookitup.ui.fragments
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -9,11 +10,15 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Spinner
 import android.widget.TextView
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import com.psp.lookitup.R
 import com.psp.lookitup.databinding.FragmentDetailsBinding
+import java.text.DateFormat
 
 
 class DetailsFragment : Fragment() {
+    val TAG = "Details Fragment"
 
     lateinit var spinner1: Spinner
     lateinit var sp1t: TextView
@@ -23,6 +28,8 @@ class DetailsFragment : Fragment() {
 
     lateinit var spinner3: Spinner
     lateinit var sp3t: TextView
+
+    val db = Firebase.firestore
 
     private var _binding: FragmentDetailsBinding? = null
     private val binding get() = _binding!!
@@ -84,6 +91,27 @@ class DetailsFragment : Fragment() {
 //            }
 //
 //        }//sp3 ends
+        // Create a new user with a first and last name
+        val user = hashMapOf(
+            "name" to "Prathamesh Karambelkar",
+            "emailId" to "pkarambelkar.2002@gmail.com",
+            "DOB" to "19",
+            "gender" to "Male",
+            "Status" to "Looking for room",
+            "occupation" to "student",
+            "location" to "Ambernath"
+        )
+
+
+// Add a new document with a generated ID
+        db.collection("users")
+            .add(user)
+            .addOnSuccessListener { documentReference ->
+                Log.d(TAG, "DocumentSnapshot added with ID: ${documentReference.id}")
+            }
+            .addOnFailureListener { e ->
+                Log.w(TAG, "Error adding document", e)
+            }
 
     }
 }

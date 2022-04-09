@@ -7,7 +7,3 @@ import com.psp.lookitup.data.Request
 class RequestAdapter()
 
 
-
-interface IPostAdapter{
-
-}
