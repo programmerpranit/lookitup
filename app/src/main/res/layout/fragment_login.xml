@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.fragments.LoginFragment"
+    android:background="@color/themePink"
     >
 
 
@@ -62,7 +63,6 @@
 
     <Button
         android:id="@+id/btnGetOtp"
-        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
         android:layout_width="103dp"
         android:layout_height="49dp"
         android:text="Get OTP"

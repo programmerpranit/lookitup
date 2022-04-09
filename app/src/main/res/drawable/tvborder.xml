@@ -4,11 +4,11 @@
 
     <!-- View background color -->
 
-
     <!-- View border color and width -->
     <stroke
         android:width="1dp"
-        android:color="@color/black"></stroke>
+        android:color="@color/black"
+        ></stroke>
 
     <!-- The radius makes the corners rounded -->
     <corners android:radius="2dp"></corners>
