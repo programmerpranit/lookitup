@@ -28,6 +28,9 @@ class MainViewmodel @Inject constructor() : ViewModel() {
 
     val TAG = "MainVM"
 
+    private var _fullUser = MutableLiveData<User>()
+    val fullUser: LiveData<User> = _fullUser
+
     private var _requestDetails = MutableLiveData<Request>()
     val requestDetails: LiveData<Request> = _requestDetails
 
@@ -108,7 +111,19 @@ class MainViewmodel @Inject constructor() : ViewModel() {
 //         }
 //    }
 
+    fun getUserById(id: String) {
+        userCollection.document(id).get().addOnSuccessListener {
+            val user = User()
+            user.name =  it.data?.get("name").toString()
+            user.emailId =  it.data?.get("emailId").toString()
+            user.DOB = it.data?.get("DOB").toString()
+            user.gender = it.data?.get("gender").toString()
+            user.occupation = it.data?.get("occupation").toString()
 
+            _fullUser.value = user
+        }
+
+    }
 
     fun searchRequests(search: String){
 
