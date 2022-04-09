@@ -1,18 +1,25 @@
 package com.psp.lookitup.ui.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
+import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.ktx.Firebase
+import androidx.navigation.findNavController
+import com.google.common.base.Verify
+import com.google.firebase.FirebaseException
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.PhoneAuthCredential
+import com.google.firebase.auth.PhoneAuthOptions
+import com.google.firebase.auth.PhoneAuthProvider
 import com.psp.lookitup.R
 import com.psp.lookitup.databinding.FragmentLoginBinding
 import com.psp.lookitup.ui.viewmodels.MainViewmodel
+import java.util.concurrent.TimeUnit
 
 class LoginFragment : Fragment(R.layout.fragment_login) {
 
@@ -22,10 +29,15 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
     private var _binding: FragmentLoginBinding? = null
     private val binding get() = _binding!!
 
+    lateinit var auth: FirebaseAuth
+    lateinit var storedVerificationId: String
+    lateinit var resendToken: PhoneAuthProvider.ForceResendingToken
+    private lateinit var callbacks: PhoneAuthProvider.OnVerificationStateChangedCallbacks
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View? {
         _binding = FragmentLoginBinding.inflate(inflater, container, false)
         val view = binding.root
@@ -35,28 +47,66 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-//        val db = Firebase.firestore
-//
-//        val user = hashMapOf(
-//            "name" to "Ada",
-//            "emailId" to "psp@gmail.com"
-//        )
-//
-//        view.findViewById<Button>(R.id.adduser).setOnClickListener{
-//            db.collection("users")
-//                .add(user)
-//                .addOnSuccessListener { documentReference ->
-//                    Log.d(TAG, "DocumentSnapshot added with ID: ${documentReference.id}")
-//                }
-//                .addOnFailureListener { e ->
-//                    Log.w(TAG, "Error adding document", e)
-//                }
-//        }
+        auth = FirebaseAuth.getInstance()
+
+//        Reference
+        val Login = binding.btnGetOtp
+
+
+        var currentUser = auth.currentUser
+        if (currentUser != null) {
+            view.findNavController().navigate(R.id.action_loginFragment_to_mainFragment)
+        }
+        Login.setOnClickListener {
+            login()
+        }
+
+
+
+        // Callback function for Phone Auth
+        callbacks = object : PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
+
+            override fun onVerificationCompleted(credential: PhoneAuthCredential) {
+                Log.d(TAG, "onVerifivcationComplete")
+            }
+
+            override fun onVerificationFailed(e: FirebaseException) {
+                Toast.makeText(requireContext(), "Failed", Toast.LENGTH_LONG).show()
+            }
+
+            override fun onCodeSent(
+                verificationId: String,
+                token: PhoneAuthProvider.ForceResendingToken,
+            ) {
+                view.findNavController().navigate(R.id.action_loginFragment_to_verifyFragment)
+                viewmodel.verificationId = verificationId
+            }
+        }
+
+
+
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
+    private fun login() {
+        val mobileNumber = binding.etPhoneNo
+        var number = mobileNumber.text.toString().trim()
+
+        if (!number.isEmpty()) {
+            number = "+91" + number
+            sendVerificationcode(number)
+        } else {
+            Toast.makeText(requireContext(), "Enter mobile number", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun sendVerificationcode(number: String) {
+        val options = PhoneAuthOptions.newBuilder(auth)
+            .setPhoneNumber(number) // Phone number to verify
+            .setTimeout(60L, TimeUnit.SECONDS) // Timeout and unit
+            .setActivity(requireActivity()) // Activity (for callback binding)
+            .setCallbacks(callbacks) // OnVerificationStateChangedCallbacks
+            .build()
+        PhoneAuthProvider.verifyPhoneNumber(options)
     }
 
 }
