@@ -56,13 +56,8 @@ class MainFragment : Fragment(), RequestAdapter.IRequestClicked {
 
     }
 
-
-
-
-
-
-
     override fun onItemClicked(item: Request) {
+        Log.d(TAG, item.id)
         val bundle = bundleOf("id" to item.id)
         binding.root.findNavController().navigate(R.id.action_mainFragment_to_requestDetailsFragment, bundle)
 
