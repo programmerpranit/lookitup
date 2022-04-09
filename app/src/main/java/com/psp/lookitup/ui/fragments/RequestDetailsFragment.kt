@@ -78,7 +78,6 @@ class RequestDetailsFragment : Fragment(R.layout.fragment_request_details) {
 
 
 }
-}
 
 
 
