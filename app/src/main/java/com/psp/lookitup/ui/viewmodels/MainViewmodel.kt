@@ -6,4 +6,6 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MainViewmodel @Inject constructor(): ViewModel() {
+
+    var verificationId = ""
 }
