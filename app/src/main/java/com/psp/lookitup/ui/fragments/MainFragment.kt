@@ -1,7 +1,6 @@
 package com.psp.lookitup.ui.fragments
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -16,7 +15,7 @@ import com.psp.lookitup.ui.adapters.RequestAdapter
 import com.psp.lookitup.ui.viewmodels.MainViewmodel
 
 
-class MainFragment : Fragment() {
+class MainFragment : Fragment(), RequestAdapter.IRequestClicked {
 
     val TAG = "Main Fragment"
     private val viewmodel: MainViewmodel by activityViewModels()
@@ -35,7 +34,7 @@ class MainFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        adapter = RequestAdapter()
+        adapter = RequestAdapter(this)
         viewmodel.getRequests()
 
         viewmodel.requests.observe(viewLifecycleOwner) { list ->
@@ -50,6 +49,10 @@ class MainFragment : Fragment() {
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
 
+    }
+
+    override fun onItemClicked(item: Request) {
+        binding.root.findNavController().navigate(R.id.action_mainFragment_to_requestDetailsFragment)
     }
 
 
