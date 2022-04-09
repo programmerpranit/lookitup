@@ -46,22 +46,23 @@ class DetailsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        //Spinner 1 logic
-        spinner1 = binding.root.findViewById(R.id.rb1)
-        sp1t = binding.root.findViewById(R.id.tvDst1)
-        val options1 = arrayOf("Male", "Female")
-        spinner1.adapter =
-            ArrayAdapter<String>(requireContext(), android.R.layout.simple_list_item_1, options1)
-        spinner1.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onNothingSelected(p0: AdapterView<*>?) {
-                sp1t.text = "Nothing Selected"
-            }
+//        //Spinner 1 logic
+//        spinner1 = binding.root.findViewById(R.id.rb1)
+//        sp1t = binding.root.findViewById(R.id.tvDst1)
+//        val options1 = arrayOf("Male", "Female")
+//        spinner1.adapter =
+//            ArrayAdapter<String>(requireContext(), android.R.layout.simple_list_item_1, options1)
+//        spinner1.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+//            override fun onNothingSelected(p0: AdapterView<*>?) {
+//                sp1t.text = "Nothing Selected"
+//            }
+//
+//            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+//                sp1t.text = options1.get(p2)
+//            }
+//
+//        }
 
-            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-                sp1t.text = options1.get(p2)
-            }
-
-        }
 
 
         val user = hashMapOf(
@@ -85,36 +86,36 @@ class DetailsFragment : Fragment() {
 
 
         //sp1 ends
-
-        //Spinner 2 logic
-        spinner2 = binding.root.findViewById(R.id.rb3)
-        sp2t = binding.root.findViewById(R.id.tvDst2)
-        val options2= arrayOf("Student","Working")
-        spinner2.adapter= ArrayAdapter<String>(requireContext(),android.R.layout.simple_list_item_1,options1)
-        spinner2.onItemSelectedListener=object: AdapterView.OnItemSelectedListener {
-            override fun onNothingSelected(p0: AdapterView<*>?) {
-                sp2t.text = "Nothing Selected"
-            }
-            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-                sp2t.text = options2.get(p2)
-            }
-
-        }//sp2 ends
-
-        //Spinner 3 logic
-        spinner3 = binding.root.findViewById(R.id.rb5)
-        sp3t = binding.root.findViewById(R.id.tvDst3)
-        val options3= arrayOf("Mal","Female")
-        spinner3.adapter= ArrayAdapter<String>(requireContext(),android.R.layout.simple_list_item_2,options3)
-        spinner3.onItemSelectedListener=object: AdapterView.OnItemSelectedListener {
-            override fun onNothingSelected(p0: AdapterView<*>?) {
-                sp3t.text = "Nothing Selected"
-            }
-            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-                sp3t.text = options3.get(p2)
-            }
-
-        }//sp3 ends
+//
+//        //Spinner 2 logic
+//        spinner2 = binding.root.findViewById(R.id.rb3)
+//        sp2t = binding.root.findViewById(R.id.tvDst2)
+//        val options2= arrayOf("Student","Working")
+//        spinner2.adapter= ArrayAdapter<String>(requireContext(),android.R.layout.simple_list_item_1,options1)
+//        spinner2.onItemSelectedListener=object: AdapterView.OnItemSelectedListener {
+//            override fun onNothingSelected(p0: AdapterView<*>?) {
+//                sp2t.text = "Nothing Selected"
+//            }
+//            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+//                sp2t.text = options2.get(p2)
+//            }
+//
+//        }//sp2 ends
+//
+//        //Spinner 3 logic
+//        spinner3 = binding.root.findViewById(R.id.rb5)
+//        sp3t = binding.root.findViewById(R.id.tvDst3)
+//        val options3= arrayOf("Mal","Female")
+//        spinner3.adapter= ArrayAdapter<String>(requireContext(),android.R.layout.simple_list_item_2,options3)
+//        spinner3.onItemSelectedListener=object: AdapterView.OnItemSelectedListener {
+//            override fun onNothingSelected(p0: AdapterView<*>?) {
+//                sp3t.text = "Nothing Selected"
+//            }
+//            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+//                sp3t.text = options3.get(p2)
+//            }
+//
+//        }//sp3 ends
         // Create a new user with a first and last name
     }
 }
