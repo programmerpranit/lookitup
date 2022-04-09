@@ -31,12 +31,21 @@ class MainViewmodel @Inject constructor() : ViewModel() {
     private var _requestDetails = MutableLiveData<Request>()
     val requestDetails: LiveData<Request> = _requestDetails
 
-    private var _fullUser = MutableLiveData<User>()
-    val fullUser: LiveData<User> = _fullUser
+
+    private var _userDetails = MutableLiveData<User>()
+    val userDetails :LiveData<User> = _userDetails
+
 
     private var _requests = MutableLiveData<List<Request>>()
     val requests: LiveData<List<Request>> = _requests
 
+
+    fun getUsers() {
+        val docref = db.collection("users").document("User")
+        docref.get().addOnSuccessListener { documentSnapshot ->
+            val user = documentSnapshot.toObject(User::class.java)
+        }
+    }
 
     fun getRequests(search: String?) {
 
@@ -68,7 +77,7 @@ class MainViewmodel @Inject constructor() : ViewModel() {
     }
 
     fun getFullRequest(id: String) {
-        val document =  db.collection("requests").document(id)
+        val document = db.collection("requests").document(id)
         document.get()
             .addOnSuccessListener { request ->
                 val req = Request()
@@ -76,7 +85,7 @@ class MainViewmodel @Inject constructor() : ViewModel() {
                 req.Description = (request.data!!["Description"] as String?).toString()
                 req.requestTitle = (request.data!!["requestTitle"] as String?).toString()
                 req.roomLocation = (request.data!!["roomLocation"] as String?).toString()
-               _requestDetails.value = req
+                _requestDetails.value = req
             }
             .addOnFailureListener {
                 Log.d(TAG, "data fetch failed")
@@ -92,19 +101,19 @@ class MainViewmodel @Inject constructor() : ViewModel() {
         }
     }
 
-    fun getUserById(id: String) {
-        userCollection.document(id).get().addOnSuccessListener {
-            val user = User()
-            user.name =  it.data?.get("name").toString()
-            user.emailId =  it.data?.get("emailId").toString()
-            user.DOB = it.data?.get("DOB").toString()
-            user.gender = it.data?.get("gender").toString()
-            user.occupation = it.data?.get("occupation").toString()
+//    fun getUserEmail(id: String):String {
+//         userCollection.document(id).get().addOnSuccessListener {
+//            return@addOnSuccessListener it.data?.get("emailId")
+//
+//         }
+//    }
 
-            _fullUser.value = user
-        }
+
+
+    fun searchRequests(search: String){
 
     }
+
 
     fun addRequest(request: Request) {
         db.collection("requests")

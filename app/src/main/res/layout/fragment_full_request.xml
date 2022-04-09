@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/tvborder"
-    tools:context=".ui.fragments.RequestDetailsFragment">
+    tools:context=".ui.fragments.fullRequest">
 
     <TextView
         android:id="@+id/tvNameFullRequest"
@@ -35,6 +35,8 @@
         android:textAlignment="center"
         android:textSize="15sp"
         app:layout_constraintLeft_toLeftOf="parent"
+
+
         tools:layout_editor_absoluteY="311dp" />
 
     <androidx.cardview.widget.CardView

@@ -13,12 +13,12 @@ import com.psp.lookitup.data.Request
 
 class RequestAdapter(private val listner:IRequestClicked) : ListAdapter<Request, RequestAdapter.RequestViewHolder>(DataComparator()) {
 
-    inner class RequestViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val title: TextView = itemView.findViewById(R.id.tvTitle)
-        val location: TextView = itemView.findViewById(R.id.tvLocation)
-        val name: TextView = itemView.findViewById(R.id.tvName)
-        val occupation: TextView = itemView.findViewById(R.id.tvOccupation)
+//    inner class QuestionViewHolder(
+//        private val binding: ItemQuestionBinding
+//        ) : RecyclerView.ViewHolder(binding.root)
 
+    inner class RequestViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val title: TextView = itemView.findViewById(R.id.name)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RequestViewHolder {
@@ -33,9 +33,6 @@ class RequestAdapter(private val listner:IRequestClicked) : ListAdapter<Request,
     override fun onBindViewHolder(holder: RequestViewHolder, position: Int) {
         val currentItem = getItem(position)
         holder.title.text = currentItem.requestTitle
-        holder.location.text = currentItem.roomLocation
-        holder.name.text = currentItem.name
-        holder.occupation.text = currentItem.occupation
     }
     class DataComparator : DiffUtil.ItemCallback<Request>() {
         override fun areItemsTheSame(oldItem: Request, newItem: Request): Boolean {

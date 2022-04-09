@@ -5,12 +5,12 @@ data class Request(
     var Description: String = "",
     var roomLocation: String = "",
     var requestTitle: String = "",
-    var name: String = "",
-    var emailId: String = "",
-    var DOB: String = "",
-    var gender: String= "",
+    val name: String = "",
+    val emailId: String = "",
+    val DOB: String = "",
+    val gender: String= "",
     val Status: String = "",
-    var occupation: String = ""
+    val occupation: String = ""
 
 
 )
