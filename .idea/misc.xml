@@ -3,9 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/lookitup/app/src/main/res/drawable/ic_baseline_message_24.xml" value="0.2595" />
-        <entry key="..\:/lookitup/app/src/main/res/layout/fragment_login.xml" value="0.25" />
-        <entry key="..\:/lookitup/app/src/main/res/layout/otpscreen.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/PRANIT/AndroidStudioProjects/LookitUp/app/src/main/res/layout/activity_main.xml" value="0.2526041666666667" />
       </map>
     </option>
   </component>
