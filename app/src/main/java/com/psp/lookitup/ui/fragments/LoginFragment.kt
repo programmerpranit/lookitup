@@ -57,6 +57,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         if (currentUser != null) {
             view.findNavController().navigate(R.id.action_loginFragment_to_mainFragment)
         }
+
         Login.setOnClickListener {
             login()
         }
