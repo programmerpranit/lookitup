@@ -5,7 +5,7 @@ import com.firebase.ui.firestore.FirestoreRecyclerOptions
 
 import com.psp.lookitup.data.Request
 
-class RequestAdapter() : FirestoreRe
+class RequestAdapter()
 
 
 
