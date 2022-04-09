@@ -45,6 +45,7 @@ class MainViewmodel @Inject constructor() : ViewModel() {
 
             for (request in requests.documents) {
                 val req = Request()
+                req.id = request.id
                 req.Description = (request.data!!["Description"] as String?).toString()
                 req.requestTitle = (request.data!!["requestTitle"] as String?).toString()
                 req.roomLocation = (request.data!!["roomLocation"] as String?).toString()
