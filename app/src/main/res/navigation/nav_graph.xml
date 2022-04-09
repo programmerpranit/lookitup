@@ -11,13 +11,13 @@
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
-            android:id="@+id/action_loginFragment_to_detailsFragment"
-            app:destination="@id/detailsFragment" />
-        <action
             android:id="@+id/action_loginFragment_to_mainFragment"
             app:destination="@id/mainFragment"
             app:popUpTo="@id/mainFragment"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_loginFragment_to_verifyFragment"
+            app:destination="@id/verifyFragment" />
     </fragment>
     <fragment
         android:id="@+id/addRequestFragment"
@@ -52,4 +52,13 @@
         android:name="com.psp.lookitup.ui.fragments.RequestDetailsFragment"
         android:label="fragment_request_details"
         tools:layout="@layout/fragment_request_details" />
+    <fragment
+        android:id="@+id/verifyFragment"
+        android:name="com.psp.lookitup.ui.fragments.VerifyFragment"
+        android:label="fragment_verify"
+        tools:layout="@layout/fragment_verify" >
+        <action
+            android:id="@+id/action_verifyFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+    </fragment>
 </navigation>

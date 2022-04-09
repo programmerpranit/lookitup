@@ -3,7 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/PRANIT/AndroidStudioProjects/LookitUp/app/src/main/res/layout/activity_main.xml" value="0.2526041666666667" />
+        <entry key="app/src/main/res/layout/fragment_login.xml" value="0.103125" />
+        <entry key="app/src/main/res/layout/fragment_verify.xml" value="0.165" />
       </map>
     </option>
   </component>
