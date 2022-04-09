@@ -35,7 +35,7 @@ class MainViewmodel @Inject constructor(): ViewModel() {
                         requestList.add(p)
                     }
                     for (i in requestList){
-                        Log.d("vm", i.requestTitle)
+                        //Log.d("vm", i.requestTitle)
                     }
                 }
 
