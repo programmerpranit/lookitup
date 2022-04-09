@@ -45,8 +45,9 @@ class RequestDetailsFragment : Fragment(R.layout.fragment_request_details) {
             binding.tvNameFullRequest.text = req.requestTitle
             binding.tvLocationFullRequest.text = req.roomLocation
         }
-        btnSendEmail.setOnClickListener {
+
         }
+
 
         fun sendEmail(recipient: String) {
             /*ACTION_SEND action to launch an email client installed on your Android device.*/
@@ -77,8 +78,8 @@ class RequestDetailsFragment : Fragment(R.layout.fragment_request_details) {
     }
 
 
-}
-}
+
+
 
 
 

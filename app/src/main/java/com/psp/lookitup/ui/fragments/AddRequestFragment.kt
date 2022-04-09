@@ -41,7 +41,6 @@ class AddRequestFragment : Fragment() {
 
         binding.btnSubmitRequest.setOnClickListener{
             val request = Request()
-
             request.requestTitle = binding.etRequestTitle.text.toString()
             request.Description = binding.etDesc.text.toString()
             request.roomLocation = binding.etLocation.text.toString()
