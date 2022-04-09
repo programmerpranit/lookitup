@@ -11,6 +11,7 @@ buildscript {
         // update this version later to stable version
         classpath "androidx.navigation:navigation-safe-args-gradle-plugin:2.5.0-alpha03"
         classpath("com.google.dagger:hilt-android-gradle-plugin:2.38.1")
+        classpath 'com.google.gms:google-services:4.3.10'
     }
 }
 
