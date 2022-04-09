@@ -4,10 +4,10 @@ import java.text.DateFormat
 
 data class User(
 
-    val id: Int,
+    val id: Int ,
     val name: String = "",
     val emailId: String = "",
-    val DOB: DateFormat? = null,
+    val DOB: String = "",
     val gender: String= "",
     val Status: String = "",
     val occupation: String = "",
