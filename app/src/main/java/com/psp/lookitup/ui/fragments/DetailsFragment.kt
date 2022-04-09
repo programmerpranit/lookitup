@@ -13,8 +13,11 @@ import android.widget.TextView
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.psp.lookitup.R
+import com.psp.lookitup.data.User
 import com.psp.lookitup.databinding.FragmentDetailsBinding
 import java.text.DateFormat
+import java.time.LocalDate
+import java.time.Period
 
 
 class DetailsFragment : Fragment() {
@@ -29,7 +32,7 @@ class DetailsFragment : Fragment() {
     lateinit var spinner3: Spinner
     lateinit var sp3t: TextView
 
-    val db = Firebase.firestore
+    val dbref = Firebase.firestore
 
     private var _binding: FragmentDetailsBinding? = null
     private val binding get() = _binding!!
@@ -50,17 +53,42 @@ class DetailsFragment : Fragment() {
         //Spinner 1 logic
         spinner1 = binding.root.findViewById(R.id.spinner1)
         sp1t = binding.root.findViewById(R.id.tvDst1)
-        val options1= arrayOf("Male","Female")
-        spinner1.adapter= ArrayAdapter<String>(requireContext(),android.R.layout.simple_list_item_1,options1)
-        spinner1.onItemSelectedListener=object: AdapterView.OnItemSelectedListener {
+        val options1 = arrayOf("Male", "Female")
+        spinner1.adapter =
+            ArrayAdapter<String>(requireContext(), android.R.layout.simple_list_item_1, options1)
+        spinner1.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onNothingSelected(p0: AdapterView<*>?) {
                 sp1t.text = "Nothing Selected"
             }
+
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
                 sp1t.text = options1.get(p2)
             }
 
-        }//sp1 ends
+        }
+
+
+        val user = hashMapOf(
+            "name" to "Prathamesh Karambelkar",
+            "emailId" to "pkarambelkar.2002@gmail.com",
+            "DOB" to "19",
+            "gender" to "Male",
+            "Status" to "Looking for room",
+            "occupation" to "student",
+            "location" to "Ambernath"
+        )
+// Add a new document with a generated ID
+        dbref.collection("User")
+            .add(user)
+            .addOnSuccessListener { documentReference ->
+                Log.d(TAG, "DocumentSnapshot added with ID: ${documentReference.id}")
+            }
+            .addOnFailureListener { e ->
+                Log.w(TAG, "Error adding document", e)
+            }
+
+
+        //sp1 ends
 
 //        //Spinner 2 logic
 //        spinner2 = binding.root.findViewById(R.id.spinner2)
@@ -92,26 +120,5 @@ class DetailsFragment : Fragment() {
 //
 //        }//sp3 ends
         // Create a new user with a first and last name
-        val user = hashMapOf(
-            "name" to "Prathamesh Karambelkar",
-            "emailId" to "pkarambelkar.2002@gmail.com",
-            "DOB" to "19",
-            "gender" to "Male",
-            "Status" to "Looking for room",
-            "occupation" to "student",
-            "location" to "Ambernath"
-        )
-
-
-// Add a new document with a generated ID
-        db.collection("users")
-            .add(user)
-            .addOnSuccessListener { documentReference ->
-                Log.d(TAG, "DocumentSnapshot added with ID: ${documentReference.id}")
-            }
-            .addOnFailureListener { e ->
-                Log.w(TAG, "Error adding document", e)
-            }
-
     }
 }
