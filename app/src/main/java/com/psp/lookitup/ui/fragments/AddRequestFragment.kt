@@ -11,7 +11,6 @@ import com.psp.lookitup.databinding.FragmentAddRequestBinding
 
 class AddRequestFragment : Fragment() {
 
-    private lateinit var _binding: FragmentAddRequestBinding
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
