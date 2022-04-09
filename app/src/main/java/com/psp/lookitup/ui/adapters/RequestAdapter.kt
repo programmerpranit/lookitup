@@ -13,12 +13,12 @@ import com.psp.lookitup.data.Request
 
 class RequestAdapter(private val listner:IRequestClicked) : ListAdapter<Request, RequestAdapter.RequestViewHolder>(DataComparator()) {
 
-//    inner class QuestionViewHolder(
-//        private val binding: ItemQuestionBinding
-//        ) : RecyclerView.ViewHolder(binding.root)
-
     inner class RequestViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val title: TextView = itemView.findViewById(R.id.name)
+        val title: TextView = itemView.findViewById(R.id.tvTitle)
+        val location: TextView = itemView.findViewById(R.id.tvLocation)
+        val name: TextView = itemView.findViewById(R.id.tvName)
+        val occupation: TextView = itemView.findViewById(R.id.tvOccupation)
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RequestViewHolder {

@@ -31,6 +31,9 @@ class MainViewmodel @Inject constructor() : ViewModel() {
     private var _requestDetails = MutableLiveData<Request>()
     val requestDetails: LiveData<Request> = _requestDetails
 
+    private var _fullUser = MutableLiveData<User>()
+    val fullUser: LiveData<User> = _fullUser
+
     private var _requests = MutableLiveData<List<Request>>()
     val requests: LiveData<List<Request>> = _requests
 
@@ -98,8 +101,11 @@ class MainViewmodel @Inject constructor() : ViewModel() {
         }
     }
 
-    fun getUserById(id: String): Task<DocumentSnapshot> {
-        return userCollection.document(id).get()
+    fun getUserById(id: String) {
+        userCollection.document(id).get().addOnSuccessListener {
+            val user = User(id = it.data?.get("id").toString().toInt())
+            user.emailId =  it.data?.get("emailId").toString()
+        }
     }
 
     fun searchRequests(search: String){
