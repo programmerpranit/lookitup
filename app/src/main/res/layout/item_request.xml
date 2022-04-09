@@ -10,8 +10,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        >
+        android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/name"
@@ -19,21 +18,52 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:hint="Full Name"
+            android:textAlignment="textStart"
             android:textColor="@color/black"
             android:textSize="25sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_weight="1"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/desc"
-            android:layout_width="wrap_content"
+            android:id="@+id/textView4"
+            android:layout_width="212dp"
             android:layout_height="wrap_content"
-            android:text="desc"
+            android:layout_margin="10dp"
+            android:layout_marginStart="8dp"
+            android:hint="Gender"
+            android:textAlignment="textStart"
             android:textColor="@color/black"
             android:textSize="25sp"
-            android:layout_margin="10dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/name" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="88dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+
+            android:hint="Age"
+            android:textAlignment="textStart"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="258dp"
+            android:layout_height="48dp"
+            android:layout_margin="10dp"
+            android:hint="Occupation"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
