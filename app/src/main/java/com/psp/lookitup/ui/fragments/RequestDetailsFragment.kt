@@ -43,10 +43,9 @@ class RequestDetailsFragment : Fragment(R.layout.fragment_request_details) {
         }
         viewmodel.requestDetails.observe(viewLifecycleOwner) { req ->
             binding.tvNameFullRequest.text = req.requestTitle
-            binding.tvLocationFullRequest.text = req.roomLocation
+
         }
-        btnSendEmail.setOnClickListener {
-        }
+
 
         fun sendEmail(recipient: String) {
             /*ACTION_SEND action to launch an email client installed on your Android device.*/
@@ -59,9 +58,6 @@ class RequestDetailsFragment : Fragment(R.layout.fragment_request_details) {
             /* recipient is put as array because you may wanna send email to multiple emails
                so enter comma(,) separated emails, it will be stored in array*/
             mIntent.putExtra(Intent.EXTRA_EMAIL, arrayOf(recipient))
-
-
-
 
             try {
                 //start email intent
@@ -78,7 +74,7 @@ class RequestDetailsFragment : Fragment(R.layout.fragment_request_details) {
 
 
 }
-}
+
 
 
 
