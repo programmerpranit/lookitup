@@ -194,19 +194,46 @@
 
             />
 
-
-
         <Spinner
             android:id="@+id/spinner3"
             android:layout_width="150dp"
             android:layout_height="33dp"
             android:layout_margin="10dp"
             app:layout_constraintLeft_toLeftOf="parent"
-
             app:layout_constraintTop_toBottomOf="@id/tvRequest"
             >
-
         </Spinner>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilLocation"
+            android:layout_width="302dp"
+            android:layout_height="64dp"
+            android:layout_margin="10dp"
+            android:hint="Enter Location"
+            app:boxBackgroundColor="#FFFFFF"
+            app:boxBackgroundMode="outline"
+            app:boxCornerRadiusBottomEnd="5dp"
+            app:boxCornerRadiusBottomStart="5dp"
+            app:boxCornerRadiusTopEnd="5dp"
+            app:boxCornerRadiusTopStart="5dp"
+            app:boxStrokeColor="#76FF03"
+            app:errorIconDrawable="@android:drawable/ic_menu_close_clear_cancel"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/spinner3">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etLocation"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="8dp"
+                android:textSize="20sp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
 
 
 
