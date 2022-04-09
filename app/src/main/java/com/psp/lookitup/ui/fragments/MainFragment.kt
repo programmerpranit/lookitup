@@ -40,7 +40,16 @@ class MainFragment : Fragment(), RequestAdapter.IRequestClicked {
         super.onViewCreated(view, savedInstanceState)
 
         adapter = RequestAdapter(this)
-        viewmodel.getRequests()
+
+        var search = binding.etSearch.text.toString().lowercase()
+
+        binding.btnSearch.setOnClickListener {
+            search = binding.etSearch.text.toString().lowercase()
+            Log.d(TAG, "search clicked $search")
+            viewmodel.getRequests(search)
+        }
+
+        viewmodel.getRequests(search)
 
         viewmodel.requests.observe(viewLifecycleOwner) { list ->
             adapter.submitList(list)
@@ -56,13 +65,8 @@ class MainFragment : Fragment(), RequestAdapter.IRequestClicked {
 
     }
 
-
-
-
-
-
-
     override fun onItemClicked(item: Request) {
+        Log.d(TAG, item.id)
         val bundle = bundleOf("id" to item.id)
         binding.root.findNavController().navigate(R.id.action_mainFragment_to_requestDetailsFragment, bundle)
 

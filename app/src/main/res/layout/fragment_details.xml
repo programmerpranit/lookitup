@@ -8,76 +8,61 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
+        android:layout_height="match_parent">
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/tilName"
-            android:layout_width="0dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:hint="Enter Name"
-            app:errorIconDrawable="@android:drawable/ic_menu_close_clear_cancel"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:hint="Name"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etName"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:padding="8dp"
-                android:textSize="20sp" />
+                android:layout_height="wrap_content"
+                android:inputType="text" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/tilEmail"
-            android:layout_width="302dp"
-            android:layout_height="64dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:hint="Enter Email"
-            app:boxBackgroundColor="#FFFFFF"
-            app:boxBackgroundMode="outline"
-            app:boxCornerRadiusBottomEnd="5dp"
-            app:boxCornerRadiusBottomStart="5dp"
-            app:boxCornerRadiusTopEnd="5dp"
-            app:boxCornerRadiusTopStart="5dp"
-            app:boxStrokeColor="#76FF03"
-            app:errorIconDrawable="@android:drawable/ic_menu_close_clear_cancel"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tilName">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etEmail"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:padding="8dp"
-                android:textSize="20sp" />
-
+                android:layout_height="wrap_content"
+                android:inputType="text" />
         </com.google.android.material.textfield.TextInputLayout>
-
 
         <TextView
             android:id="@+id/tvDob"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginVertical="10dp"
+            android:layout_margin="10dp"
             android:text="Enter Birth Date:"
             android:textSize="20sp"
-            android:layout_margin="10dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tilEmail"></TextView>
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tilEmail" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
-
-
-            android:id="@+id/linear_layout"
+            android:id="@+id/cl"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
             android:layout_margin="10dp"
-            app:layout_constraintStart_toStartOf="parent"
+            android:gravity="center"
+            app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvDob">
 
             <DatePicker
@@ -89,7 +74,6 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-
                 app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -98,69 +82,87 @@
             android:id="@+id/tvGender"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="10dp"
             android:text="Select Gender:"
             android:textSize="20sp"
-            android:layout_margin="10dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linear_layout">
-
-        </TextView>
-
-        <RadioButton
-            android:id="@+id/rb1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:text="Male"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvGender"
-            tools:layout_editor_absoluteX="20dp">
-        </RadioButton>
+            app:layout_constraintTop_toBottomOf="@+id/cl" />
 
-        <RadioButton
-            android:id="@+id/rb2"
-            android:layout_width="wrap_content"
+        <RadioGroup
+            android:id="@+id/rg1"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:text="Female"
-            app:layout_constraintLeft_toRightOf="@id/rb1"
-            app:layout_constraintTop_toBottomOf="@id/tvGender"
-            tools:layout_editor_absoluteX="20dp">
-        </RadioButton>
+            android:layout_marginTop="44dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.112"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cl">
+
+            <RadioButton
+                android:id="@+id/rbFemale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="Female"
+                android:buttonTint="@color/themeRed"
+                app:layout_constraintBottom_toTopOf="@id/tvOccupation"
+                app:layout_constraintLeft_toRightOf="@id/rbMale"
+                tools:layout_editor_absoluteX="20dp" />
+
+            <RadioButton
+                android:id="@+id/rbMale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="Male"
+                app:layout_constraintBottom_toTopOf="@id/tvOccupation"
+                app:layout_constraintLeft_toRightOf="@id/rbMale"
+                tools:layout_editor_absoluteX="20dp" />
+
+        </RadioGroup>
 
         <TextView
             android:id="@+id/tvOccupation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:text="Select Your Occupation"
-            app:layout_constraintLeft_toLeftOf="parent"
+            android:text="Select Your Occupation:"
             android:textSize="20sp"
-            app:layout_constraintTop_toBottomOf="@+id/rb1"
-            tools:layout_editor_absoluteX="24dp">
-        </TextView>
-
-
-        <RadioButton
-            android:id="@+id/rb3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
             app:layout_constraintLeft_toLeftOf="parent"
-            android:text="Student"
-            app:layout_constraintTop_toBottomOf="@id/tvOccupation">
-        </RadioButton>
+            app:layout_constraintTop_toBottomOf="@+id/rg1"
+            tools:layout_editor_absoluteX="24dp" />
 
-        <RadioButton
-            android:id="@+id/rb4"
-            android:layout_width="wrap_content"
+        <RadioGroup
+            android:id="@+id/rg2"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:text="Working Profestion"
-            app:layout_constraintLeft_toRightOf="@id/rb3"
-            app:layout_constraintTop_toBottomOf="@id/tvOccupation"
-            tools:layout_editor_absoluteX="20dp">
-        </RadioButton>
+            android:layout_marginTop="44dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rg1">
+
+            <RadioButton
+                android:id="@+id/rbStudent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="Student"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvOccupation" />
+
+            <RadioButton
+                android:id="@+id/rbWorkingProf"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="Working Profestion"
+                app:layout_constraintLeft_toRightOf="@id/rbStudent"
+                app:layout_constraintTop_toBottomOf="@id/tvOccupation"
+                tools:layout_editor_absoluteX="20dp" />
+
+        </RadioGroup>
 
         <TextView
             android:id="@+id/tvRequest"
@@ -172,53 +174,54 @@
             android:hint="Select Your Need:"
             android:textSize="20sp"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/rb3" />
+            app:layout_constraintTop_toBottomOf="@id/rg2" />
 
-        <RadioButton
-            android:id="@+id/rb5"
-            android:layout_width="wrap_content"
+        <RadioGroup
+            android:id="@+id/rg3"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:text="Looking for Room"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvRequest">
-        </RadioButton>
+            android:layout_marginTop="44dp"
+            android:orientation="horizontal"
+            android:buttonTint="@color/themeRed"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rg2">
 
-        <RadioButton
-            android:id="@+id/rb6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:text="Looking for Room-Mates"
-            app:layout_constraintLeft_toRightOf="@id/rb5"
-            app:layout_constraintTop_toBottomOf="@id/tvRequest">
-        </RadioButton>
+            <RadioButton
+                android:id="@+id/rbLookingForRoom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="Looking for Room"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvRequest" />
 
+            <RadioButton
+                android:id="@+id/rbLookingForRoommates"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="Looking for Room-Mates"
+                app:layout_constraintLeft_toRightOf="@id/rbLookingForRoom"
+                app:layout_constraintTop_toBottomOf="@id/tvRequest" />
+        </RadioGroup>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/tilLocation"
-            android:layout_width="302dp"
-            android:layout_height="64dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:hint="Enter Location"
             app:boxBackgroundColor="#FFFFFF"
             app:boxBackgroundMode="outline"
-            app:boxCornerRadiusBottomEnd="5dp"
-            app:boxCornerRadiusBottomStart="5dp"
-            app:boxCornerRadiusTopEnd="5dp"
-            app:boxCornerRadiusTopStart="5dp"
-            app:boxStrokeColor="#EA0C0C"
-            app:errorIconDrawable="@android:drawable/ic_menu_close_clear_cancel"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/rb5">
+            app:layout_constraintTop_toBottomOf="@id/rg3">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etLocation"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:padding="8dp"
-                android:textSize="20sp" />
-
+                android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
@@ -226,10 +229,11 @@
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:text="Submit"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/tilLocation"
             app:layout_constraintStart_toStartOf="@+id/tilLocation"
-            app:layout_constraintTop_toBottomOf="@+id/tilLocation"/>
+            app:layout_constraintTop_toBottomOf="@+id/tilLocation" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
