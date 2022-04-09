@@ -19,13 +19,13 @@ import com.psp.lookitup.databinding.FragmentDetailsBinding
 class DetailsFragment : Fragment() {
     val TAG = "Details Fragment"
 
-    lateinit var spinner1: Spinner
+
     lateinit var sp1t: TextView
 
-    lateinit var spinner2: Spinner
+
     lateinit var sp2t: TextView
 
-    lateinit var spinner3: Spinner
+
     lateinit var sp3t: TextView
 
     val dbref = Firebase.firestore
