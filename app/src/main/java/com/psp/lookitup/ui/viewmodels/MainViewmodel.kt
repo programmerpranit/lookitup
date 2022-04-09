@@ -39,9 +39,8 @@ class MainViewmodel @Inject constructor() : ViewModel() {
         val requestUser: MutableList<User> = mutableListOf()
         val dbref = db.collection("users")
         dbref.get().addOnSuccessListener { users ->
-            for (user in users.documents) {
-                val req = Request()
-            }
+
+
         }
     }
 

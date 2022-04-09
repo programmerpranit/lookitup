@@ -8,11 +8,10 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
+import com.google.firebase.auth.FirebaseAuth
 import com.psp.lookitup.R
 import com.psp.lookitup.data.Request
 import com.psp.lookitup.databinding.FragmentAddRequestBinding
-import com.psp.lookitup.databinding.FragmentMainBinding
-import com.psp.lookitup.ui.adapters.RequestAdapter
 import com.psp.lookitup.ui.viewmodels.MainViewmodel
 import kotlinx.android.synthetic.main.item_request.*
 
@@ -22,6 +21,11 @@ class AddRequestFragment : Fragment() {
     val TAG = "Add Request Fragment"
     private val viewmodel: MainViewmodel by activityViewModels()
     private lateinit var binding: FragmentAddRequestBinding
+
+   val auth = FirebaseAuth.getInstance()
+
+
+    val currentUser = auth.currentUser?.uid
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -37,6 +41,7 @@ class AddRequestFragment : Fragment() {
 
         binding.btnSubmitRequest.setOnClickListener{
             val request = Request()
+
             request.requestTitle = binding.etRequestTitle.text.toString()
             request.Description = binding.etDesc.text.toString()
             request.roomLocation = binding.etLocation.text.toString().lowercase()
