@@ -52,10 +52,13 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 //        Reference
         val Login = binding.btnGetOtp
 
-        viewmodel.getQuestions()
+
+        binding.btnToMain.setOnClickListener{
+            view.findNavController().navigate(R.id.action_loginFragment_to_mainFragment)
+        }
 
 
-        var currentUser = auth.currentUser
+        val currentUser = auth.currentUser
         if (currentUser != null) {
             view.findNavController().navigate(R.id.action_loginFragment_to_mainFragment)
         }

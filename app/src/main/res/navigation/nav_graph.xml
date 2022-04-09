@@ -23,7 +23,13 @@
         android:id="@+id/addRequestFragment"
         android:name="com.psp.lookitup.ui.fragments.AddRequestFragment"
         android:label="fragment_add_request"
-        tools:layout="@layout/fragment_add_request" />
+        tools:layout="@layout/fragment_add_request" >
+        <action
+            android:id="@+id/action_addRequestFragment_to_mainFragment"
+            app:destination="@id/mainFragment"
+            app:popUpTo="@id/mainFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
     <fragment
         android:id="@+id/detailsFragment"
         android:name="com.psp.lookitup.ui.fragments.DetailsFragment"
