@@ -30,8 +30,6 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
     private val binding get() = _binding!!
 
     lateinit var auth: FirebaseAuth
-    lateinit var storedVerificationId: String
-    lateinit var resendToken: PhoneAuthProvider.ForceResendingToken
     private lateinit var callbacks: PhoneAuthProvider.OnVerificationStateChangedCallbacks
 
     override fun onCreateView(
