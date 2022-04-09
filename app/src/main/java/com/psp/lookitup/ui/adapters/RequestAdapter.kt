@@ -1,11 +1,9 @@
 package com.psp.lookitup.ui.adapters
 
-import com.firebase.ui.firestore.FirestoreRecyclerAdapter
-import com.firebase.ui.firestore.FirestoreRecyclerOptions
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.ktx.Firebase
 
-import com.psp.lookitup.data.Request
-
-class RequestAdapter() : FirestoreRe
+class RequestAdapter() : FirestoreRecycler
 
 
 
