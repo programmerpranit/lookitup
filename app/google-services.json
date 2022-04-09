@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "512862705240",
+    "project_id": "lookitup-13924",
+    "storage_bucket": "lookitup-13924.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:512862705240:android:ca871f23f49d8a81925c2d",
+        "android_client_info": {
+          "package_name": "com.psp.lookitup"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "512862705240-20acujp0elbc12t575ucluiefqfq9dnq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDI9ect2p8NS4YKi_tGjxwXAtvbu_FjDrg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "512862705240-20acujp0elbc12t575ucluiefqfq9dnq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
