@@ -2,9 +2,6 @@ package com.psp.lookitup.ui.adapters
 
 import com.psp.lookitup.R
 import com.psp.lookitup.data.Request
-
-package com.psp.collegeforum.ui.adapters
-
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -30,17 +27,17 @@ class RequestAdapter : ListAdapter<Request, RequestAdapter.RequestViewHolder>(Da
 
     override fun onBindViewHolder(holder: RequestViewHolder, position: Int) {
         val currentItem = getItem(position)
-        holder.title.text = currentItem.
+        holder.title.text = currentItem.requestTitle
         //holder.name.text = currentItem.user.name
         // holder.time.text = currentItem.timestamp
     }
 
-    class DataComparator : DiffUtil.ItemCallback<Question>() {
-        override fun areItemsTheSame(oldItem: Question, newItem: Question): Boolean {
-            return oldItem.qid == newItem.qid
+    class DataComparator : DiffUtil.ItemCallback<Request>() {
+        override fun areItemsTheSame(oldItem: Request, newItem: Request): Boolean {
+            return oldItem.requestTitle == newItem.requestTitle
         }
 
-        override fun areContentsTheSame(oldItem: Question, newItem: Question): Boolean {
+        override fun areContentsTheSame(oldItem: Request, newItem: Request): Boolean {
             return oldItem == newItem
         }
 
