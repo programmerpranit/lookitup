@@ -3,14 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/PRANIT/AndroidStudioProjects/LookitUp/app/src/main/res/layout/activity_main.xml" value="0.2526041666666667" />
-        <entry key="app/src/main/res/drawable/ic_baseline_message_24.xml" value="0.173" />
-        <entry key="app/src/main/res/layout/fragment_details.xml" value="0.335" />
-        <entry key="app/src/main/res/layout/fragment_full_request.xml" value="0.19610507246376813" />
-        <entry key="app/src/main/res/layout/fragment_login.xml" value="0.1015625" />
-        <entry key="app/src/main/res/layout/fragment_main.xml" value="0.19610507246376813" />
-        <entry key="app/src/main/res/layout/fragment_request_details.xml" value="0.19610507246376813" />
-        <entry key="app/src/main/res/layout/fragment_verify.xml" value="0.335" />
+        <entry key="..\:/lookitup/app/src/main/res/drawable/tvborder.xml" value="0.254" />
+        <entry key="..\:/lookitup/app/src/main/res/layout/activity_main.xml" value="0.10989583333333333" />
+        <entry key="..\:/lookitup/app/src/main/res/layout/fragment_add_request.xml" value="0.10989583333333333" />
+        <entry key="..\:/lookitup/app/src/main/res/layout/fragment_details.xml" value="0.25" />
+        <entry key="..\:/lookitup/app/src/main/res/layout/fragment_full_request.xml" value="0.2" />
+        <entry key="..\:/lookitup/app/src/main/res/layout/fragment_login.xml" value="0.264" />
+        <entry key="..\:/lookitup/app/src/main/res/layout/fragment_main.xml" value="0.25" />
+        <entry key="..\:/lookitup/app/src/main/res/layout/fragment_request_details.xml" value="0.25" />
+        <entry key="..\:/lookitup/app/src/main/res/layout/fragment_verify.xml" value="0.264" />
+        <entry key="..\:/lookitup/app/src/main/res/layout/item_request.xml" value="0.10989583333333333" />
       </map>
     </option>
   </component>
@@ -19,5 +21,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.2" />
+      </ProjectState>
+    </option>
   </component>
 </project>
