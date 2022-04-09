@@ -22,6 +22,7 @@ class RequestDetailsFragment : Fragment(R.layout.fragment_request_details) {
 
     private val viewmodel: MainViewmodel by activityViewModels()
     private lateinit var binding: FragmentFullRequestBinding
+    var email = ""
 
     val TAG = "reqdetails"
 
@@ -41,19 +42,21 @@ class RequestDetailsFragment : Fragment(R.layout.fragment_request_details) {
         if (id != null) {
             viewmodel.getFullRequest(id)
         }
+
         viewmodel.requestDetails.observe(viewLifecycleOwner) { req ->
             binding.tvNameFullRequest.text = req.requestTitle
-            binding.tvLocationFullRequest.text = req.roomLocation
+            email = req.emailId
+//            binding.tvLocationFullRequest.text = req.roomLocation
         }
-        btnSendEmail.setOnClickListener {
-        }
+//        binding.btnSendEmail.setOnClickListener {
+//        }
 
         fun sendEmail(recipient: String) {
             /*ACTION_SEND action to launch an email client installed on your Android device.*/
             val mIntent = Intent(Intent.ACTION_SEND)
             /*To send an email you need to specify mailto: as URI using setData() method
             and data type will be to text/plain using setType() method*/
-            mIntent.data = Uri.parse("mailto:")
+            mIntent.data = Uri.parse("mailto:$email")
             mIntent.type = "text/plain"
             // put recipient email in intent
             /* recipient is put as array because you may wanna send email to multiple emails
