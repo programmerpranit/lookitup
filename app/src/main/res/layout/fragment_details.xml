@@ -213,23 +213,6 @@
                 app:layout_constraintTop_toBottomOf="@id/tvRequest" />
         </RadioGroup>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tilLocation"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:hint="Enter Location"
-            app:boxBackgroundColor="#FFFFFF"
-            app:boxBackgroundMode="outline"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/rg3">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etLocation"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-        </com.google.android.material.textfield.TextInputLayout>
 
         <Button
             android:id="@+id/btnSubmitRequest"
@@ -239,8 +222,8 @@
             android:layout_marginTop="20dp"
             android:text="Submit"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/tilLocation"
-            app:layout_constraintStart_toStartOf="@+id/tilLocation"
-            app:layout_constraintTop_toBottomOf="@+id/tilLocation" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rg3" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
