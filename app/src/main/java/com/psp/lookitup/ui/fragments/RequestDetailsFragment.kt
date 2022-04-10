@@ -58,7 +58,11 @@ class RequestDetailsFragment : Fragment(R.layout.fragment_request_details) {
 //
         }
         binding.btnLetsConnect.setOnClickListener {
-//            sendEmail(email)
+            val intent = Intent(Intent.ACTION_SEND)
+            intent.type = "text/html"
+            intent.putExtra(Intent.EXTRA_EMAIL, "email")
+            intent.putExtra(Intent.EXTRA_SUBJECT, "Regarding your request on Lookitup")
+            startActivity(Intent.createChooser(intent, "Send Email"))
         }
     }
 
