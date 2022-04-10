@@ -68,7 +68,8 @@ class DetailsFragment : Fragment() {
                 emailId = emailID,
                 gender = Gender,
                 Status = Need,
-                occupation = Occupation
+                occupation = Occupation,
+                DOB = Date
             )
 
             if (uid != null) {
@@ -108,7 +109,7 @@ class DetailsFragment : Fragment() {
     }
 
     fun onstatusRadioButtonClicked(view: View): String {
-        val cid = binding.rg2.checkedRadioButtonId
+        val cid = binding.rg3.checkedRadioButtonId
 
         val status = if(cid == binding.rbLookingForRoom.id){
             "Looking For Room"
@@ -119,7 +120,7 @@ class DetailsFragment : Fragment() {
     }
 
     fun onOccupationRadioButtonClicked(view: View): String {
-        val cid = binding.rg3.checkedRadioButtonId
+        val cid = binding.rg2.checkedRadioButtonId
 
         val occupation = if(cid == binding.rbStudent.id){
             "Student"

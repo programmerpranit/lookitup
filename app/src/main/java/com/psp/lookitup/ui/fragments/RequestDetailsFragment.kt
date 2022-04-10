@@ -19,7 +19,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_full_request.*
 
 @AndroidEntryPoint
-class RequestDetailsFragment : Fragment(R.layout.fragment_request_details) {
+class RequestDetailsFragment : Fragment() {
 
     val dbref = Firebase.firestore
 
@@ -62,7 +62,6 @@ class RequestDetailsFragment : Fragment(R.layout.fragment_request_details) {
         binding.btnLetsConnect.setOnClickListener {
             val intent = Intent(Intent.ACTION_SEND)
             intent.type = "text/html"
-            Log.d(TAG, email)
 //            intent.setType("message/rfc822")
             intent.putExtra(Intent.EXTRA_EMAIL, "mailto:$email")
             intent.putExtra(Intent.EXTRA_SUBJECT, "Regarding your request on Lookitup")
