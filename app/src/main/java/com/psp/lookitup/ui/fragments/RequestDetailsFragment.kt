@@ -3,6 +3,7 @@ package com.psp.lookitup.ui.fragments
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -24,7 +25,7 @@ class RequestDetailsFragment : Fragment(R.layout.fragment_request_details) {
 
     private val viewmodel: MainViewmodel by activityViewModels()
     private lateinit var binding: FragmentFullRequestBinding
-    var email = ""
+    private lateinit var email:String
 
     val TAG = "reqdetails"
 
@@ -48,7 +49,8 @@ class RequestDetailsFragment : Fragment(R.layout.fragment_request_details) {
         viewmodel.requestDetails.observe(viewLifecycleOwner) { req ->
             binding.tvNameFullRequest.text = req.name
             binding.tvEmailIdFullRequest.text = req.emailId
-            binding.tvNameFullRequest.text = req.requestTitle
+            binding.tvReqTitle.text = req.requestTitle
+            Log.d(TAG, req.emailId)
             email = req.emailId
             binding.tvdescriptionfullrequest.text = req.Description
             binding.tvReqAge.text = req.DOB
@@ -57,36 +59,19 @@ class RequestDetailsFragment : Fragment(R.layout.fragment_request_details) {
             binding.tvReqStatus.text = req.Status
             binding.tvReqOccupation.text = req.occupation
         }
-//        binding.btnsendemail.setOnClickListener {
-//        }
-
-        fun sendEmail(recipient: String) {
-            /*ACTION_SEND action to launch an email client installed on your Android device.*/
-            val mIntent = Intent(Intent.ACTION_SEND)
-            /*To send an email you need to specify mailto: as URI using setData() method
-            and data type will be to text/plain using setType() method*/
-            mIntent.data = Uri.parse("mailto:$email")
-            mIntent.type = "text/plain"
-            // put recipient email in intent
-            /* recipient is put as array because you may wanna send email to multiple emails
-               so enter comma(,) separated emails, it will be stored in array*/
-            mIntent.putExtra(Intent.EXTRA_EMAIL, arrayOf(recipient))
-
-
-
-
-            try {
-                //start email intent
-                startActivity(Intent.createChooser(mIntent, "Choose Email Client..."))
-            }
-            catch (e: Exception){
-                //if any thing goes wrong for example no email client application or any exception
-                //get and show exception message
-
-            }
-
+        binding.btnLetsConnect.setOnClickListener {
+            val intent = Intent(Intent.ACTION_SEND)
+            intent.type = "text/html"
+            Log.d(TAG, email)
+//            intent.setType("message/rfc822")
+            intent.putExtra(Intent.EXTRA_EMAIL, "mailto:$email")
+            intent.putExtra(Intent.EXTRA_SUBJECT, "Regarding your request on Lookitup")
+            startActivity(Intent.createChooser(intent, "Send Email"))
         }
+
+
     }
+
 
 
 }

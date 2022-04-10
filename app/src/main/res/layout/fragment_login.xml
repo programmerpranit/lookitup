@@ -38,7 +38,7 @@
         android:layout_height="wrap_content"
         android:text="Look !t Up"
         android:textSize="45sp"
-        android:textStyle="bold||italic"
+        android:textStyle="bold"
         android:textColor="@color/themeRed"
         app:layout_constraintTop_toBottomOf="@id/imViewLogin"
         app:layout_constraintBottom_toTopOf="@id/phone"

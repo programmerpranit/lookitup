@@ -11,9 +11,11 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.psp.lookitup.R
+import com.psp.lookitup.data.User
 import com.psp.lookitup.databinding.FragmentDetailsBinding
 import com.psp.lookitup.ui.viewmodels.MainViewmodel
 import kotlinx.android.synthetic.main.fragment_details.*
@@ -22,20 +24,15 @@ import kotlinx.android.synthetic.main.fragment_details.*
 class DetailsFragment : Fragment() {
     val TAG = "Details Fragment"
 
-
     private val viewmodel: MainViewmodel by activityViewModels()
-    lateinit var sp1t: TextView
-
-
-    lateinit var sp2t: TextView
-
-
-    lateinit var sp3t: TextView
 
     val dbref = Firebase.firestore
 
     private var _binding: FragmentDetailsBinding? = null
     private val binding get() = _binding!!
+
+    val auth = FirebaseAuth.getInstance()
+    val uid = auth.currentUser?.uid
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -53,126 +50,83 @@ class DetailsFragment : Fragment() {
         val submitDetails = binding.btnSubmitRequest
         val name = binding.etName
         val email = binding.etEmail
-        val date = binding.datePicker
-        val gender = binding.rg1
-        val occupation = binding.rg2
-        val need = binding.rg3
+        val date = binding.etAge
 
 
         submitDetails.setOnClickListener {
             val Fname = name.text.toString()
             val emailID = email.text.toString()
-            val Date = date.toString()
-            val Gender = onGenderRadioButtonClicked(view).toString()
-            val Occupation = onOccupationRadioButtonClicked(view).toString()
-            val Need = onstatusRadioButtonClicked(view).toString()
+            val Date = date.text.toString()
+            val Gender = onGenderRadioButtonClicked(view)
+            val Occupation = onOccupationRadioButtonClicked(view)
+            val Need = onstatusRadioButtonClicked(view)
 
-            val user = hashMapOf(
-                "name" to Fname,
-                "emailID" to emailID,
-                "DOB" to Date,
-                "gender" to Gender,
-                "Status" to Need,
-                "occupation" to Occupation,
 
+            val user = User(
+                id = uid?: "",
+                name = Fname,
+                emailId = emailID,
+                gender = Gender,
+                Status = Need,
+                occupation = Occupation
             )
-            dbref.collection("users")
-                .add(user)
-                .addOnSuccessListener { documentReference ->
-                    Log.d(TAG, "DocumentSnapshot added ")
 
-                }.addOnSuccessListener {
-                    Toast.makeText(
-                        requireContext(),
-                        "Data Added to database successfully",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                    view.findNavController().navigate(R.id.action_detailsFragment_to_mainFragment)
-                }
-                .addOnFailureListener { e ->
-                    Log.w(TAG, "Error adding document", e)
-                }
-        }
-
-
-
-
-
-//        val user = hashMapOf(
-//            "name" to "Prathamesh Karambelkar",
-//            "emailId" to "pkarambelkar.2002@gmail.com",
-//            "DOB" to "19",
-//            "gender" to "Male",
-//            "Status" to "Looking for room",
-//            "occupation" to "student",
-//            "location" to "Ambernath"
-//        )
-//        dbref.collection("User")
-//            .add(user)
-//            .addOnSuccessListener { documentReference ->
-//                Log.d(TAG, "DocumentSnapshot added with ID: ${documentReference.id}")
-//            }
-//            .addOnFailureListener { e ->
-//                Log.w(TAG, "Error adding document", e)
-//            }
-
-    }
-    fun onGenderRadioButtonClicked(view: View) {
-        if (view is RadioButton) {
-            // Is the button now checked?
-            val checked = view.isChecked
-
-            // Check which radio button was clicked
-            when (view.getId()) {
-                R.id.rbMale ->
-                    if (checked) {
-                        val male = rbMale.text.toString()
+            if (uid != null) {
+                dbref.collection("users")
+                    .add(user)
+                    .addOnSuccessListener { documentReference ->
+                        Log.d(TAG, "DocumentSnapshot added ")
+                        Toast.makeText(
+                            requireContext(),
+                            "Data Added to database successfully",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                        view.findNavController().navigate(R.id.action_detailsFragment_to_mainFragment)
                     }
-                R.id.rbFemale ->
-                    if (checked) {
-                        val Female = rbFemale.text.toString()
+                    .addOnFailureListener { e ->
+                        Log.w(TAG, "Error adding document", e)
                     }
             }
         }
+
+
+    }
+    fun onGenderRadioButtonClicked(view: View): String {
+
+        // Is the button now checked?
+        val checked = binding.rg1
+
+        val cid = checked.checkedRadioButtonId
+
+        val gender =  if(cid == binding.rbMale.id){
+            "Male"
+        } else {
+            "Female"
+        }
+
+        return gender
     }
 
-    fun onstatusRadioButtonClicked(view: View) {
-        if (view is RadioButton) {
-            // Is the button now checked?
-            val checked = view.isChecked
+    fun onstatusRadioButtonClicked(view: View): String {
+        val cid = binding.rg2.checkedRadioButtonId
 
-            // Check which radio button was clicked
-            when (view.getId()) {
-                R.id.rbLookingForRoom ->
-                    if (checked) {
-                        val lookingforroom = rbLookingForRoom.text.toString()
-
-                    }
-                R.id.rbLookingForRoommates ->
-                    if (checked) {
-                        val lookingforroommates = rbLookingForRoommates.text.toString()
-                    }
-            }
+        val status = if(cid == binding.rbLookingForRoom.id){
+            "Looking For Room"
+        }  else {
+            "Looking For Roommate"
         }
+        return status
     }
 
-    fun onOccupationRadioButtonClicked(view: View) {
-        if (view is RadioButton) {
-            // Is the button now checked?
-            val checked = view.isChecked
+    fun onOccupationRadioButtonClicked(view: View): String {
+        val cid = binding.rg3.checkedRadioButtonId
 
-
-            when (view.getId()) {
-                R.id.rbStudent ->
-                    if (checked) {
-                        val student = rbStudent.text.toString()
-                    }
-                R.id.rbWorkingProf ->
-                    if (checked) {
-                        val working = rbWorkingProf.text.toString()
-                    }
-            }
+        val occupation = if(cid == binding.rbStudent.id){
+            "Student"
+        }  else {
+            "Working Professional"
         }
+        return occupation
     }
 
 }

@@ -68,11 +68,12 @@ class AddRequestFragment : Fragment() {
             request.name = user.name
             Log.d(TAG, user.name)
 //            print(request.name)
-            request.occupation = viewmodel.userFull.occupation
-            request.emailId = viewmodel.userFull.name
+            request.occupation = user.occupation
+            request.emailId = user.emailId
 
-            request.gender = viewmodel.userFull.name
-            request.DOB = viewmodel.userFull.name
+            request.gender = user.gender
+            request.DOB = user.DOB
+            request.Status = user.Status
 
             viewmodel.addRequest(request)
             Toast.makeText(requireContext(), "Your Request Added Successfully", Toast.LENGTH_SHORT).show()

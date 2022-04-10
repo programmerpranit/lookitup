@@ -66,7 +66,7 @@ class MainViewmodel @Inject constructor() : ViewModel() {
             for (request in requests.documents) {
                 val req = Request()
                 req.id = request.id
-                req.Description = (request.data!!["Description"] as String?).toString()
+                req.Description = (request.data!!["description"] as String?).toString()
                 req.requestTitle = (request.data!!["requestTitle"] as String?).toString()
                 req.roomLocation = (request.data!!["roomLocation"] as String?).toString()
                 req.name = (request.data!!["name"] as String?).toString()
@@ -86,7 +86,7 @@ class MainViewmodel @Inject constructor() : ViewModel() {
             .addOnSuccessListener { request ->
                 val req = Request()
                 req.id = request.id
-                req.Description = (request.data!!["Description"] as String?).toString()
+                req.Description = (request.data!!["description"] as String?).toString()
                 req.requestTitle = (request.data!!["requestTitle"] as String?).toString()
                 req.roomLocation = (request.data!!["roomLocation"] as String?).toString()
                 req.name = (request.data!!["name"] as String?).toString()
