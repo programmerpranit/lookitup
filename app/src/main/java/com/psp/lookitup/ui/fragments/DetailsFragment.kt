@@ -63,7 +63,7 @@ class DetailsFragment : Fragment() {
             val Fname = name.text.toString()
             val emailID = email.text.toString()
             val Date = date.toString()
-            val Gender = onGenderRadioButtonClicked(view).toString()
+            val Gender = onGenderRadioButtonClicked(view)
             val Occupation = onOccupationRadioButtonClicked(view).toString()
             val Need = onstatusRadioButtonClicked(view).toString()
 
@@ -117,7 +117,8 @@ class DetailsFragment : Fragment() {
 //            }
 
     }
-    fun onGenderRadioButtonClicked(view: View) {
+    fun onGenderRadioButtonClicked(view: View): String {
+        var gender = ""
         if (view is RadioButton) {
             // Is the button now checked?
             val checked = view.isChecked
@@ -126,14 +127,16 @@ class DetailsFragment : Fragment() {
             when (view.getId()) {
                 R.id.rbMale ->
                     if (checked) {
-                        val male = rbMale.text.toString()
+                        gender = rbMale.text.toString()
                     }
                 R.id.rbFemale ->
                     if (checked) {
-                        val Female = rbFemale.text.toString()
+                        gender = rbFemale.text.toString()
                     }
             }
         }
+
+        return gender
     }
 
     fun onstatusRadioButtonClicked(view: View) {
