@@ -12,13 +12,14 @@
     <ImageView
         android:layout_width="210dp"
         android:layout_height="210dp"
+        android:layout_margin="10dp"
         android:src="@drawable/ic_verify"
         app:layout_constraintBottom_toTopOf="@+id/tilVerify"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_margin="10dp"
         app:layout_constraintStart_toStartOf="parent"
-        />
+        app:layout_constraintTop_toTopOf="parent" />
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilVerify"
         android:layout_width="0dp"
@@ -35,10 +36,9 @@
         app:errorIconDrawable="@android:drawable/ic_menu_close_clear_cancel"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.522"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.419">
+        app:layout_constraintVertical_bias="0.478">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etVerify"

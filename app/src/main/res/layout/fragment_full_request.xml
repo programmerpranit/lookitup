@@ -4,8 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/tvborder"
-    tools:context=".ui.fragments.RequestDetailsFragment">
+    android:background="@color/themePink"
+    tools:context=".ui.fragments.RequestDetailsFragment"
+    android:layout_marginHorizontal="20dp">
 
     <TextView
         android:id="@+id/tvNameFullRequest"
@@ -39,8 +40,8 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="100dp"
         app:cardCornerRadius="100dp"
@@ -59,89 +60,101 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="20dp" />
+        app:layout_constraintGuide_begin="39dp" />
+
+
+    <TextView
+        android:id="@+id/tvReqTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:text="Title"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvEmailIdFullRequest"></TextView>
 
     <TextView
         android:id="@+id/tvdescriptionfullrequest"
-        android:layout_width="403dp"
+        android:layout_width="0dp"
         android:layout_height="95dp"
-        android:layout_marginStart="8dp"
         android:layout_marginTop="12dp"
         android:ellipsize="end"
         android:hint="Description"
-        android:text="Description"
-        android:textSize="25sp"
+        android:layout_margin="10dp"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvEmailIdFullRequest" />
+        app:layout_constraintTop_toBottomOf="@+id/tvReqTitle" />
 
     <TextView
-        android:id="@+id/textView3"
-        android:layout_width="110dp"
-        android:layout_height="46dp"
+        android:id="@+id/tvReqAge"
+        android:layout_width="76dp"
+        android:layout_height="34dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="8dp"
-        android:text="AGE"
-        android:textSize="25sp"
+        android:text="Age"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvdescriptionfullrequest" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/tvReqGender"
         android:layout_width="106dp"
         android:layout_height="38dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="12dp"
         android:text="Gender"
-        android:textSize="25sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        app:layout_constraintTop_toBottomOf="@+id/tvReqAge" />
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/tvReqLocation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginTop="12dp"
         android:text="Location"
-        android:textSize="25sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+        app:layout_constraintTop_toBottomOf="@+id/tvReqGender" />
 
     <TextView
-        android:id="@+id/textView9"
+        android:id="@+id/tvReqStatus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginTop="12dp"
         android:text="Status"
-        android:textSize="25sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+        app:layout_constraintTop_toBottomOf="@+id/tvReqLocation" />
 
     <TextView
-        android:id="@+id/textView10"
+        android:id="@+id/tvReqOccupation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginTop="12dp"
         android:text="Student"
-        android:textSize="25sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+        app:layout_constraintTop_toBottomOf="@+id/tvReqStatus" />
 
     <Button
         android:id="@+id/btnLetsConnect"
-        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Let's Connect"
-
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView10" />
-
-
+        app:layout_constraintTop_toBottomOf="@+id/tvReqOccupation"
+        app:layout_constraintVertical_bias="0.0" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
