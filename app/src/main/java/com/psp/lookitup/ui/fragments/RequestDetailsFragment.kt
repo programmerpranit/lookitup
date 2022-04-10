@@ -1,12 +1,10 @@
 package com.psp.lookitup.ui.fragments
 
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat.startActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.google.firebase.firestore.ktx.firestore
@@ -23,7 +21,7 @@ class RequestDetailsFragment : Fragment(R.layout.fragment_request_details) {
 
     private val viewmodel: MainViewmodel by activityViewModels()
     private lateinit var binding: FragmentFullRequestBinding
-    var email = ""
+//    var email = ""
 
     val TAG = "reqdetails"
 
@@ -39,11 +37,11 @@ class RequestDetailsFragment : Fragment(R.layout.fragment_request_details) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val dbref = Firebase.firestore
+        val btnletsConnece = binding.btnLetsConnect
         val id = arguments?.getString("id")
         if (id != null) {
             viewmodel.getFullRequest(id)
         }
-
         viewmodel.requestDetails.observe(viewLifecycleOwner) { req ->
             binding.tvNameFullRequest.text = req.name
             binding.tvEmailIdFullRequest.text = req.emailId
@@ -54,16 +52,28 @@ class RequestDetailsFragment : Fragment(R.layout.fragment_request_details) {
             binding.textView6.text = req.gender
             binding.textView9.text = req.Status
             binding.textView10.text = req.occupation
-            email = req.emailId
+            val email = req.emailId.toString()
 //
         }
-        binding.btnLetsConnect.setOnClickListener {
+        btnletsConnece.setOnClickListener {
 //            sendEmail(email)
+            val intent = Intent(Intent.ACTION_SEND)
+            intent.type = "text/html"
+            intent.putExtra(Intent.EXTRA_EMAIL, "email")
+            intent.putExtra(Intent.EXTRA_SUBJECT, "Regarding your request on Lookitup")
+            startActivity(Intent.createChooser(intent, "Send Email"))
         }
     }
-
-
+//    fun composeEmail(addresses: Array<String?>?, subject: String?) {
+//        val intent = Intent(Intent.ACTION_SENDTO)
+//        intent.data = Uri.parse("mailto:") // only email apps should handle this
+//        intent.putExtra(Intent.EXTRA_EMAIL, addresses)
+//        intent.putExtra(Intent.EXTRA_SUBJECT, subject)
+//        if (intent.resolveActivity(getPackageManager()) != null) {
+//            startActivity(intent)
+//        }
 }
+
 
 //fun sendEmail(recipient: String) {
 //    val mIntent = Intent(Intent.ACTION_SEND)
