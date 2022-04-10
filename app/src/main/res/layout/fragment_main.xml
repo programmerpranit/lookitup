@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/themePink"
     android:layout_height="match_parent"
     tools:context=".ui.fragments.MainFragment">
 
@@ -14,7 +15,7 @@
         android:layout_margin="10dp"
         android:hint="Search By Location"
         app:boxBackgroundColor="#FFFFFF"
-        app:boxStrokeColor="#673AB7"
+        app:boxStrokeColor="@color/themeRed"
         app:layout_constraintEnd_toStartOf="@+id/btnSearch"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -52,7 +53,9 @@
         android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/themeRed"
         android:layout_margin="30dp"
+        android:src="@drawable/ic_add"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
