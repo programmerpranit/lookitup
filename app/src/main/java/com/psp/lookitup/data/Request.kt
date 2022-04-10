@@ -9,7 +9,7 @@ data class Request(
     var emailId: String = "",
     var DOB: String = "",
     var gender: String= "",
-    val Status: String = "",
+    var Status: String = "",
     var occupation: String = ""
 
 

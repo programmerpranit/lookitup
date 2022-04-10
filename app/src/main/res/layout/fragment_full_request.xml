@@ -6,13 +6,13 @@
     android:layout_height="match_parent"
     android:background="@color/themePink"
     tools:context=".ui.fragments.RequestDetailsFragment"
-    android:layout_marginHorizontal="20dp">
+    android:paddingHorizontal="20dp" >
 
     <TextView
         android:id="@+id/tvNameFullRequest"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_margin="10dp"
         android:hint="Prathamesh Karambelkar"
         android:textAlignment="center"
         android:textColor="@color/black"
@@ -26,26 +26,22 @@
 
     <TextView
         android:id="@+id/tvEmailIdFullRequest"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="100dp"
-        android:layout_marginTop="8dp"
-        android:hint="Pkarambelkar.2002@gmail.com"
-        android:textAlignment="center"
-        android:textSize="15sp"
-
-
+        android:layout_margin="10dp"
         app:layout_constraintLeft_toLeftOf="parent"
+        android:hint="Pkarambelkar.2002@gmail.com"
+        android:textSize="20sp"
         app:layout_constraintTop_toBottomOf="@+id/tvNameFullRequest" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="180dp"
         android:layout_height="180dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="100dp"
+        android:layout_margin="10dp"
         app:cardCornerRadius="100dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
@@ -55,106 +51,89 @@
             tools:src="@tools:sample/avatars" />
     </androidx.cardview.widget.CardView>
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="39dp" />
-
 
     <TextView
         android:id="@+id/tvReqTitle"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="20dp"
+        android:layout_margin="10dp"
         android:text="Title"
         android:textSize="25sp"
         android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvEmailIdFullRequest"></TextView>
+        app:layout_constraintTop_toBottomOf="@+id/tvEmailIdFullRequest"/>
 
     <TextView
         android:id="@+id/tvdescriptionfullrequest"
         android:layout_width="0dp"
-        android:layout_height="95dp"
-        android:layout_marginTop="12dp"
-        android:ellipsize="end"
+        android:layout_height="wrap_content"
         android:hint="Description"
         android:layout_margin="10dp"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textSize="25sp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvReqTitle" />
 
     <TextView
         android:id="@+id/tvReqAge"
-        android:layout_width="76dp"
-        android:layout_height="34dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
         android:text="Age"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textSize="25sp"
+        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvdescriptionfullrequest" />
 
     <TextView
         android:id="@+id/tvReqGender"
-        android:layout_width="106dp"
-        android:layout_height="38dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="12dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="Gender"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textSize="25sp"
+        android:layout_margin="10dp"
+        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvReqAge" />
 
     <TextView
         android:id="@+id/tvReqLocation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="12dp"
+        android:layout_margin="10dp"
         android:text="Location"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textSize="25sp"
+        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvReqGender" />
 
     <TextView
         android:id="@+id/tvReqStatus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="12dp"
+        android:layout_margin="10dp"
         android:text="Status"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textSize="25sp"
+        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvReqLocation" />
 
     <TextView
         android:id="@+id/tvReqOccupation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="12dp"
+        android:layout_margin="10dp"
         android:text="Student"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textSize="25sp"
+        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvReqStatus" />
 
     <Button
         android:id="@+id/btnLetsConnect"
-
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="10dp"
         android:text="Let's Connect"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvReqOccupation"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/tvReqOccupation" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
