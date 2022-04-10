@@ -1,6 +1,7 @@
 package com.psp.lookitup.ui.fragments
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -14,6 +15,8 @@ import com.psp.lookitup.data.Request
 import com.psp.lookitup.data.User
 import com.psp.lookitup.databinding.FragmentAddRequestBinding
 import com.psp.lookitup.ui.viewmodels.MainViewmodel
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 
 class AddRequestFragment : Fragment() {
@@ -23,6 +26,8 @@ class AddRequestFragment : Fragment() {
     private lateinit var binding: FragmentAddRequestBinding
 
    val auth = FirebaseAuth.getInstance()
+
+    private lateinit var user: User
 
 
     val uid = auth.currentUser?.uid
@@ -39,26 +44,35 @@ class AddRequestFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        viewmodel.getUserById(uid!!)
 
-       // viewmodel.getUserById(uid!!)
 
-        var user = User()
+//        var user = User()
+//
+//        var userName = ""
+//        var userOccupation = ""
 
         viewmodel.fullUser.observe(viewLifecycleOwner){
             user = it
         }
 
 
+
+
         binding.btnSubmitRequest.setOnClickListener{
             val request = Request()
-            request.requestTitle = binding.etRequestTitle.text.toString()
+            request.requestTitle = binding.etRequestTitle.text.toString().uppercase()
             request.Description = binding.etDesc.text.toString()
             request.roomLocation = binding.etLocation.text.toString().lowercase()
+
             request.name = user.name
-            request.emailId = user.emailId
-            request.occupation = user.occupation
-            request.gender = user.gender
-            request.DOB =user.DOB
+            Log.d(TAG, user.name)
+//            print(request.name)
+            request.occupation = viewmodel.userFull.occupation
+            request.emailId = viewmodel.userFull.name
+
+            request.gender = viewmodel.userFull.name
+            request.DOB = viewmodel.userFull.name
 
             viewmodel.addRequest(request)
             Toast.makeText(requireContext(), "Your Request Added Successfully", Toast.LENGTH_SHORT).show()

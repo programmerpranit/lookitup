@@ -1,5 +1,6 @@
 package com.psp.lookitup.ui.adapters
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -34,6 +35,7 @@ class RequestAdapter(private val listner:IRequestClicked) : ListAdapter<Request,
         val currentItem = getItem(position)
         holder.title.text = currentItem.requestTitle
         holder.location.text = currentItem.roomLocation
+        Log.d("adapter", currentItem.name)
         holder.name.text = currentItem.name
         holder.occupation.text = currentItem.occupation
     }
