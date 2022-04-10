@@ -29,6 +29,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.4"
         app:layout_constraintStart_toStartOf="parent"
+        android:backgroundTint="@color/themeRed"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <EditText
@@ -37,7 +38,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
         android:hint="Tell Us About Yourself and your requirements"
-
+        android:backgroundTint="@color/themeRed"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/etRequestTitle" />
@@ -48,6 +49,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="44dp"
         android:hint="Location"
+        android:backgroundTint="@color/themeRed"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etDesc" />
@@ -57,7 +59,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Submit Request"
-
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
