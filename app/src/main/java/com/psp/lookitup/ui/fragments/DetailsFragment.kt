@@ -1,6 +1,5 @@
 package com.psp.lookitup.ui.fragments
 
-import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -9,7 +8,6 @@ import android.view.ViewGroup
 import android.widget.RadioButton
 import android.widget.TextView
 import android.widget.Toast
-import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
@@ -19,8 +17,6 @@ import com.psp.lookitup.R
 import com.psp.lookitup.databinding.FragmentDetailsBinding
 import com.psp.lookitup.ui.viewmodels.MainViewmodel
 import kotlinx.android.synthetic.main.fragment_details.*
-import java.time.LocalDate
-import java.time.Period
 
 
 class DetailsFragment : Fragment() {
@@ -67,7 +63,7 @@ class DetailsFragment : Fragment() {
             val Fname = name.text.toString()
             val emailID = email.text.toString()
             val Date = date.toString()
-            val Gender = onGenderRadioButtonClicked(view)
+            val Gender = onGenderRadioButtonClicked(view).toString()
             val Occupation = onOccupationRadioButtonClicked(view).toString()
             val Need = onstatusRadioButtonClicked(view).toString()
 
@@ -121,8 +117,7 @@ class DetailsFragment : Fragment() {
 //            }
 
     }
-    fun onGenderRadioButtonClicked(view: View): String {
-        var gender = ""
+    fun onGenderRadioButtonClicked(view: View) {
         if (view is RadioButton) {
             // Is the button now checked?
             val checked = view.isChecked
@@ -131,16 +126,14 @@ class DetailsFragment : Fragment() {
             when (view.getId()) {
                 R.id.rbMale ->
                     if (checked) {
-                        gender = rbMale.text.toString()
+                        val male = rbMale.text.toString()
                     }
                 R.id.rbFemale ->
                     if (checked) {
-                        gender = rbFemale.text.toString()
+                        val Female = rbFemale.text.toString()
                     }
             }
         }
-
-        return gender
     }
 
     fun onstatusRadioButtonClicked(view: View) {
@@ -181,6 +174,5 @@ class DetailsFragment : Fragment() {
             }
         }
     }
-
 
 }
