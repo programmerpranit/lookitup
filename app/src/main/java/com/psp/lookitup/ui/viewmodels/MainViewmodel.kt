@@ -6,9 +6,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.CollectionReference
-import com.google.firebase.firestore.DocumentReference
-import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
 import com.psp.lookitup.data.Request
 import com.psp.lookitup.data.User
@@ -36,8 +33,7 @@ class MainViewmodel @Inject constructor() : ViewModel() {
     val requestDetails: LiveData<Request> = _requestDetails
 
 
-    private var _userDetails = MutableLiveData<User>()
-    val userDetails :LiveData<User> = _userDetails
+    var userFull = User()
 
 
     private var _requests = MutableLiveData<List<Request>>()
@@ -53,13 +49,14 @@ class MainViewmodel @Inject constructor() : ViewModel() {
 
     fun getRequests(search: String?) {
 
-        Log.d(TAG, search?: "Search is Empty")
+        Log.d(TAG, search ?: "Search is Empty")
 
-        val docref = if (search.isNullOrBlank() || search.isNullOrEmpty()){
+        val docref = if (search.isNullOrBlank() || search.isNullOrEmpty()) {
             db.collection("requests")
         } else {
             Log.d(TAG, "In Else")
-            db.collection("requests").orderBy("roomLocation") .startAt(search).endAt(search+"\uf8ff")
+            db.collection("requests").orderBy("roomLocation").startAt(search)
+                .endAt(search + "\uf8ff")
         }
 
         val requestList: MutableList<Request> = mutableListOf()
@@ -72,6 +69,9 @@ class MainViewmodel @Inject constructor() : ViewModel() {
                 req.Description = (request.data!!["Description"] as String?).toString()
                 req.requestTitle = (request.data!!["requestTitle"] as String?).toString()
                 req.roomLocation = (request.data!!["roomLocation"] as String?).toString()
+                req.name = (request.data!!["name"] as String?).toString()
+                req.occupation = (request.data!!["occupation"] as String?).toString()
+                req.gender = (request.data!!["gender"] as String?).toString()
 
                 Log.d(TAG, req.roomLocation)
                 requestList.add(req)
@@ -105,32 +105,29 @@ class MainViewmodel @Inject constructor() : ViewModel() {
         }
     }
 
-//    fun getUserEmail(id: String):String {
-//         userCollection.document(id).get().addOnSuccessListener {
-//            return@addOnSuccessListener it.data?.get("emailId")
-//
-//         }
-//    }
+    fun getUserById(id: String) {
+        println(id)
+        var userdata = User()
+        val user = db.collection("users").orderBy("id").startAt(id)
+        user.get().addOnSuccessListener {
+            val req = it.documents[0]
+            userdata = User(
+                name = (req.data!!["name"] as String?).toString(),
+                emailId = (req.data!!["emailId"] as String?).toString(),
+                DOB = (req.data!!["DOB"] as String?).toString(),
+                gender = (req.data!!["gender"] as String?).toString(),
+                occupation = (req.data!!["occupation"] as String?).toString()
+            )
+            _fullUser.value = userdata
+            Log.d(TAG, userdata.name)
 
-    /*fun getUserById(id: String) {
-        userCollection.document(id).get().addOnSuccessListener {
-            val user = User()
-            user.name =  it.data?.get("name").toString()
-            user.emailId =  it.data?.get("emailId").toString()
-            user.DOB = it.data?.get("DOB").toString()
-            user.gender = it.data?.get("gender").toString()
-            user.occupation = it.data?.get("occupation").toString()
-
-            _fullUser.value = user
+        }.addOnSuccessListener {
+            userFull = userdata
         }
 
-    }*/
 
-    fun searchRequests(search: String){
 
     }
-
-
 
     fun addRequest(request: Request) {
         db.collection("requests")
