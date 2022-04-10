@@ -49,11 +49,11 @@ class RequestDetailsFragment : Fragment(R.layout.fragment_request_details) {
             binding.tvEmailIdFullRequest.text = req.emailId
             binding.tvReqTitle.text = req.requestTitle
             binding.tvdescriptionfullrequest.text = req.Description
-            binding.textView8.text = req.roomLocation
-            binding.textView3.text = req.DOB
-            binding.textView6.text = req.gender
-            binding.textView9.text = req.Status
-            binding.textView10.text = req.occupation
+            binding.tvReqLocation.text = req.roomLocation
+            binding.tvReqAge.text = req.DOB
+            binding.tvReqGender.text = req.gender
+            binding.tvReqStatus.text = req.Status
+            binding.tvReqOccupation.text = req.occupation
             email = req.emailId
 //
         }

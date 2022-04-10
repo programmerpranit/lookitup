@@ -90,18 +90,18 @@
         app:layout_constraintTop_toBottomOf="@+id/tvReqTitle" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/tvReqAge"
         android:layout_width="76dp"
         android:layout_height="34dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="8dp"
-        android:text="AGE"
+        android:text="Age"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvdescriptionfullrequest" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/tvReqGender"
         android:layout_width="106dp"
         android:layout_height="38dp"
         android:layout_marginStart="10dp"
@@ -109,10 +109,10 @@
         android:text="Gender"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        app:layout_constraintTop_toBottomOf="@+id/tvReqAge" />
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/tvReqLocation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
@@ -120,10 +120,10 @@
         android:text="Location"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+        app:layout_constraintTop_toBottomOf="@+id/tvReqGender" />
 
     <TextView
-        android:id="@+id/textView9"
+        android:id="@+id/tvReqStatus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
@@ -131,10 +131,10 @@
         android:text="Status"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+        app:layout_constraintTop_toBottomOf="@+id/tvReqLocation" />
 
     <TextView
-        android:id="@+id/textView10"
+        android:id="@+id/tvReqOccupation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
@@ -142,7 +142,7 @@
         android:text="Student"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+        app:layout_constraintTop_toBottomOf="@+id/tvReqStatus" />
 
     <Button
         android:id="@+id/btnLetsConnect"
@@ -153,7 +153,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView10" />
+        app:layout_constraintTop_toBottomOf="@+id/tvReqOccupation" />
 
 
 
