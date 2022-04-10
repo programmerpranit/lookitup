@@ -46,9 +46,16 @@ class RequestDetailsFragment : Fragment(R.layout.fragment_request_details) {
         }
 
         viewmodel.requestDetails.observe(viewLifecycleOwner) { req ->
+            binding.tvNameFullRequest.text = req.name
+            binding.tvEmailIdFullRequest.text = req.emailId
             binding.tvNameFullRequest.text = req.requestTitle
             email = req.emailId
-//            binding.tvLocationFullRequest.text = req.roomLocation
+            binding.tvdescriptionfullrequest.text = req.Description
+            binding.tvReqAge.text = req.DOB
+            binding.tvReqGender.text = req.gender
+            binding.tvReqLocation.text = req.roomLocation
+            binding.tvReqStatus.text = req.Status
+            binding.tvReqOccupation.text = req.occupation
         }
 //        binding.btnsendemail.setOnClickListener {
 //        }

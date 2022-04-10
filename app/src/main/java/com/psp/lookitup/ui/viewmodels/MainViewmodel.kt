@@ -89,6 +89,14 @@ class MainViewmodel @Inject constructor() : ViewModel() {
                 req.Description = (request.data!!["Description"] as String?).toString()
                 req.requestTitle = (request.data!!["requestTitle"] as String?).toString()
                 req.roomLocation = (request.data!!["roomLocation"] as String?).toString()
+                req.name = (request.data!!["name"] as String?).toString()
+                req.occupation = (request.data!!["occupation"] as String?).toString()
+                req.gender = (request.data!!["gender"] as String?).toString()
+                req.emailId = (request.data!!["emailId"] as String?).toString()
+                req.DOB = (request.data!!["DOB"] as String?).toString()
+                req.Status = (request.data!!["Status"] as String?).toString()
+
+
                 _requestDetails.value = req
             }
             .addOnFailureListener {
