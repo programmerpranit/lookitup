@@ -5,8 +5,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
@@ -21,6 +21,7 @@ import javax.inject.Inject
 class MainViewmodel @Inject constructor() : ViewModel() {
 
     val auth = FirebaseAuth.getInstance()
+
     val currentUser = auth.currentUser?.uid
     val db = FirebaseFirestore.getInstance()
     val userCollection = db.collection("users")
@@ -111,7 +112,7 @@ class MainViewmodel @Inject constructor() : ViewModel() {
 //         }
 //    }
 
-    fun getUserById(id: String) {
+    /*fun getUserById(id: String) {
         userCollection.document(id).get().addOnSuccessListener {
             val user = User()
             user.name =  it.data?.get("name").toString()
@@ -123,11 +124,12 @@ class MainViewmodel @Inject constructor() : ViewModel() {
             _fullUser.value = user
         }
 
-    }
+    }*/
 
     fun searchRequests(search: String){
 
     }
+
 
 
     fun addRequest(request: Request) {

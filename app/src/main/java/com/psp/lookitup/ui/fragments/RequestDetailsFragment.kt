@@ -20,6 +20,8 @@ import kotlinx.android.synthetic.main.fragment_full_request.*
 @AndroidEntryPoint
 class RequestDetailsFragment : Fragment(R.layout.fragment_request_details) {
 
+    val dbref = Firebase.firestore
+
     private val viewmodel: MainViewmodel by activityViewModels()
     private lateinit var binding: FragmentFullRequestBinding
     var email = ""
@@ -48,7 +50,7 @@ class RequestDetailsFragment : Fragment(R.layout.fragment_request_details) {
             email = req.emailId
 //            binding.tvLocationFullRequest.text = req.roomLocation
         }
-//        binding.btnSendEmail.setOnClickListener {
+//        binding.btnsendemail.setOnClickListener {
 //        }
 
         fun sendEmail(recipient: String) {

@@ -1,11 +1,10 @@
 package com.psp.lookitup.data
 
 data class User(
-    val id: Int = 0,
     var name: String = "",
     var emailId: String = "",
     var DOB: String = "",
-    var gender: String= "",
+    var gender: String = "",
     val Status: String = "",
     var occupation: String = "",
 )

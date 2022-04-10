@@ -14,7 +14,6 @@ import com.psp.lookitup.data.Request
 import com.psp.lookitup.data.User
 import com.psp.lookitup.databinding.FragmentAddRequestBinding
 import com.psp.lookitup.ui.viewmodels.MainViewmodel
-import kotlinx.android.synthetic.main.item_request.*
 
 
 class AddRequestFragment : Fragment() {
@@ -41,7 +40,7 @@ class AddRequestFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
-        viewmodel.getUserById(uid!!)
+       // viewmodel.getUserById(uid!!)
 
         var user = User()
 
